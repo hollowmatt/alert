@@ -15,7 +15,8 @@ class PlatformsController < ApplicationController
       flash[:notice] = "Platform created"
       redirect_to @platform
     else
-      #nothing
+      flash.now[:alert] = "Platform has not been created."
+      render "new"
     end
   end
 
