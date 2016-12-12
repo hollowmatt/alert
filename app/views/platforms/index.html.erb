@@ -1,3 +1,13 @@
 <p>welcome</p>
 
+<h1>Platforms</h1>
+
+<ul>
+  <% @platforms.each do |p| %>
+    <li> <%= link_to "#{p.name}", platform_path(p) %> </li>
+  <% end %>
+</ul>
+
+
+
 <%= link_to "New Platform", new_platform_path %>
