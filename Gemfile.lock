@@ -201,6 +201,7 @@ DEPENDENCIES
   jquery-rails
   mailgun-ruby
   materialize-sass
+  minitest
   mysql2 (~> 0.3.18)
   pry-rails
   rails (= 4.2.5)

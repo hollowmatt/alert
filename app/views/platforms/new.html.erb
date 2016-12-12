@@ -1,0 +1,14 @@
+<h1>new platform generator</h1>
+<%= form_for(@platform) do |f| %>
+  <p>
+    <%= f.label :name, "Name" %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :description, "Description" %> <br>
+    <%= f.text_field :description %>
+  </p>
+
+  <%= f.submit "Create Platform" %>
+<% end %>
