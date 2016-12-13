@@ -2,9 +2,10 @@
 
 <h1>Platforms</h1>
 
-<ul>
+<div id="platforms">
   <% @platforms.each do |p| %>
-    <li> <%= link_to "#{p.name}", platform_path(p) %> </li>
+    <h2> <%= link_to "#{p.name}", platform_path(p) %> </h2>
+    <p> <%= p.description %> </p>
   <% end %>
 </ul>
 
