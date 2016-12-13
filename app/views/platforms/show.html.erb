@@ -4,3 +4,7 @@
   <p>
     <%= @platform.description %>
   </p>
+
+<div id="nav">
+  [ <%=link_to "Home", root_path %> | <%= link_to "Edit Platform", edit_platform_path(@platform) %> ]
+</div>
