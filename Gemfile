@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'react-rails'
 gem 'materialize-sass'
 gem 'rails_utils'
+gem 'bootstrap-sass'
 
 
 group :development, :test do
