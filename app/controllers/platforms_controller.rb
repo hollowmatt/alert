@@ -10,9 +10,6 @@ class PlatformsController < ApplicationController
     @platform = Platform.new
   end
 
-  def edit
-  end
-
   def destroy
     @platform.destroy
     flash[:notice] = "Platform has been deleted."
@@ -41,11 +38,6 @@ class PlatformsController < ApplicationController
     end
   end
 
-  def show
-    @platform = Platform.find(params[:id])
-  end
-
-
   private
 
   def platform_params
@@ -54,6 +46,9 @@ class PlatformsController < ApplicationController
 
   def current_platform
     @platform = Platform.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "The platform you were looking for could not be found."
+      redirect_to platforms_path
   end
 
 end
