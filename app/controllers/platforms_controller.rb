@@ -1,6 +1,6 @@
 class PlatformsController < ApplicationController
 
-  before_filter :current_platform, only: [:edit, :show, :update]
+  before_filter :current_platform, only: [:edit, :show, :update, :destroy]
 
   def index
     @platforms = Platform.all
@@ -11,6 +11,12 @@ class PlatformsController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    @platform.destroy
+    flash[:notice] = "Platform has been deleted."
+    redirect_to platforms_path
   end
 
   def update
