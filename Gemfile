@@ -14,6 +14,7 @@ gem 'materialize-sass'
 gem 'rails_utils'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'simple_form'
 
 
 group :development, :test do
