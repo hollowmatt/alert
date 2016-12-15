@@ -1,6 +1,16 @@
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "platform";
+@import "responsive";
+
+body {
+	padding-top: 70px;
+}
+.navbar {
+	background-color: #e3f2fd;
+}
 
 .page-header {
 	position: relative;
@@ -9,20 +19,11 @@
 	&:first-child {
 		margin-top: 20px;
 	}
-
-	h1, h2, h3, h4, h5, h6 {
-		max-width: 55%;
-	}
 }
 
 ul.actions {
 	@extend .list-unstyled;
 	@extend .list-inline;
-	position: absolute;
-	bottom: -2px;
-	right: 2px;
-	max-width: 45%;
-	text-align: right;
 }
 
 .new-btn {
@@ -40,7 +41,7 @@ ul.actions {
 	border-radius: 0;
 }
 
-.edit-btn, .delete-btn, .home-btn, .cancel-btn {
+.edit-btn, .delete-btn, .home-btn, .cancel-btn, .save-btn {
 	@extend .btn;
 
 	&:before {
@@ -78,6 +79,14 @@ ul.actions {
 
 	&:before {
 		@extend .fa-remove;
+	}
+}
+
+.save-btn {
+	@extend .btn-primary;
+
+	&:before {
+		@extend .fa-save;
 	}
 }
 
