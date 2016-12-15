@@ -1,2 +1,15 @@
-<h1>Edit platform </h1>
+<div class="page-header">
+	<h1>Edit Platform<h1>
+	<ul class="actions">
+		<li>
+			<%= link_to "Cancel", platform_path(@platform), class: "cancel-btn" %>
+		</li>
+		<li>
+			<%= link_to "Delete Platform", platform_path(@platform), method: :delete, data: {confirm: "Are you sure you want to delete this platform?"}, class: "delete-btn" %>
+		</li>
+		<li>
+			<%=link_to "Home", root_path, class: "home-btn" %> 
+		</li>
+</div>
+
 <%= render "form", platform: @platform %>

@@ -1,2 +1,90 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
+
+.page-header {
+	position: relative;
+	padding-bottom: 0px;
+
+	&:first-child {
+		margin-top: 20px;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		max-width: 55%;
+	}
+}
+
+ul.actions {
+	@extend .list-unstyled;
+	@extend .list-inline;
+	position: absolute;
+	bottom: -2px;
+	right: 2px;
+	max-width: 45%;
+	text-align: right;
+}
+
+.new-btn {
+	@extend .btn;
+	@extend .btn-success;
+
+	&:before {
+		font-family: "FontAwesome";
+		@extend .fa-plus;
+		padding-right: 0.5em;
+	}
+}
+
+.btn {
+	border-radius: 0;
+}
+
+.edit-btn, .delete-btn, .home-btn, .cancel-btn {
+	@extend .btn;
+
+	&:before {
+		font-family: "FontAwesome";
+		padding-right: 0.5em;
+	}
+}
+
+.edit-btn {
+	@extend .btn-primary;
+
+	&:before {
+		@extend .fa-pencil;
+	}
+}
+
+.delete-btn {
+	@extend .btn-danger;
+
+	&:before {
+		@extend .fa-trash;
+	}
+}
+
+.home-btn {
+	@extend .btn-info;
+
+	&:before {
+		@extend .fa-home;
+	}	
+}
+
+.cancel-btn {
+	@extend .btn-warning;
+
+	&:before {
+		@extend .fa-remove;
+	}
+}
+
+.alert-notice {
+ 	@extend .alert-success;
+}
+
+.alert-alert {
+	@extend .alert-danger;
+}

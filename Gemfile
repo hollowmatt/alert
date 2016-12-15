@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '4.2.5'
 gem 'sqlite3'
@@ -13,6 +13,7 @@ gem 'react-rails'
 gem 'materialize-sass'
 gem 'rails_utils'
 gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 
 
 group :development, :test do
