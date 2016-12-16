@@ -1,0 +1,12 @@
+<%= simple_form_for([platform, issue]) do |f| %>
+	
+	<%= f.input :priority, collection: ['P1', 'P2', 'P3'], selected: 'P1' %>
+	<%= f.input :subject %>
+	<%= f.input :issue %>
+	<%= f.input :impact %>
+	<%= f.input :ticket %>
+	<%= f.input :status %>
+	<%= f.input :next_steps %>
+	<%= f.button :submit, class: "btn-primary" %>
+
+<% end %>

@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211230825) do
+ActiveRecord::Schema.define(version: 20161216012935) do
+
+  create_table "issues", force: :cascade do |t|
+    t.string   "priority"
+    t.string   "subject"
+    t.text     "issue"
+    t.text     "impact"
+    t.string   "ticket"
+    t.text     "status"
+    t.text     "next_steps"
+    t.integer  "platform_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "issues", ["platform_id"], name: "index_issues_on_platform_id"
 
   create_table "platforms", force: :cascade do |t|
     t.string   "name"

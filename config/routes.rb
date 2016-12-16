@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'platforms#index'
 
-  resources :platforms 
+  resources :platforms do
+    resources :issues
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
