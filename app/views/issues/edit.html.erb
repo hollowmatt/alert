@@ -1,0 +1,9 @@
+<div class="page-header">
+  <h1>Edit Issue<h1>
+  <ul class="actions">
+    <li>
+      <%= link_to "Cancel", platform_issue_path(@platform, @issue), class: "cancel-btn" %>
+    </li>
+</div>
+
+<%= render "form", platform: @platform, issue: @issue %>

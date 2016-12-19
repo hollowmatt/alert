@@ -7,6 +7,19 @@ class IssuesController < ApplicationController
 		@issue = @platform.issues.build
 	end
 
+	def edit
+	end
+
+	def update
+		if @issue.update(issue_params)
+      flash[:notice] = "Issue has been updated."
+      redirect_to [@platform, @issue]
+    else
+      flash.now[:alert] = "Issue has not been updated."
+      render "edit"
+    end
+	end
+
 	def create
 		@issue = @platform.issues.build(issue_params)
 
