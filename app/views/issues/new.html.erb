@@ -3,5 +3,10 @@
 		New ticket
 		<small><%= @platform.name %> </small>
 	</h1>
+  <ul class="actions">
+    <li>
+      <%= link_to "Cancel", platform_path(@platform), class: "cancel-btn" %>
+    </li>
+  </ul>
 </div>
 <%= render "form", platform: @platform, issue: @issue %>

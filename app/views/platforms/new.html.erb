@@ -1,5 +1,10 @@
 <div class="page-header">
 	<h1>new platform generator</h1>
+  <ul class="actions">
+    <li>
+      <%= link_to "Cancel", platforms_path, class: "cancel-btn" %>
+    </li>
+  </ul>
 </div>
 <%= render "form", platform: @platform %>
 
