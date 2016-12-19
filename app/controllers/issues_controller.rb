@@ -7,7 +7,10 @@ class IssuesController < ApplicationController
 		@issue = @platform.issues.build
 	end
 
-	def edit
+	def destroy
+		@issue.destroy
+    flash[:notice] = "Issue has been deleted."
+    redirect_to @platform
 	end
 
 	def update
