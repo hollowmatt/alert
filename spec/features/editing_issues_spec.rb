@@ -10,7 +10,7 @@ feature "users can edit existing issues" do
   end
 
   scenario "with valid attributes" do
-    fill_in "Subject" with "This is the subject"
+    fill_in "Subject", with: "This is the subject"
     click_button "Update Issue"
 
     expect(page).to have_content "Issue has been updated."
@@ -21,7 +21,7 @@ feature "users can edit existing issues" do
   end
 
   scenario "without valid attributes" do 
-    fill_in "Subject" with ""
+    fill_in "Subject", with: ""
     click_link "Update Issue"
 
     expect(page).to have_content "Issue has not been updated."
