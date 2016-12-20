@@ -50,7 +50,7 @@
         <% if user_signed_in? %>
           <div class="navbar-right">
             <p class="navbar-text user-icon">
-              Signed in as <%= current_user.email %>
+              Signed in as <%= link_to current_user.email, edit_user_registration_path(current_user) %>
             </p>
           </div>
         <% end %>
