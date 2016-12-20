@@ -42,6 +42,15 @@ ul.actions {
 	border-radius: 0;
 }
 
+.user-icon {
+	&:before {
+		font-family: "FontAwesome";
+		padding-right: 0.5em;
+		@extend .fa-user-circle-o;
+		font-size: 20px;
+	}
+}
+
 .edit-btn, .delete-btn, .home-btn, .cancel-btn, .save-btn, .back-btn, .signin-btn, .signup-btn {
 	@extend .btn;
 
