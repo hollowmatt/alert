@@ -42,7 +42,7 @@ ul.actions {
 	border-radius: 0;
 }
 
-.edit-btn, .delete-btn, .home-btn, .cancel-btn, .save-btn, .back-btn {
+.edit-btn, .delete-btn, .home-btn, .cancel-btn, .save-btn, .back-btn, .signin-btn, .signup-btn {
 	@extend .btn;
 
 	&:before {
@@ -88,6 +88,22 @@ ul.actions {
 
 	&:before {
 		@extend .fa-remove;
+	}
+}
+
+.signin-btn {
+	@extend .btn-warning;
+
+	&:before {
+		@extend .fa-sign-in;
+	}
+}
+
+.signup-btn {
+	@extend .btn-warning;
+
+	&:before {
+		@extend .fa-plus-circle;
 	}
 }
 
