@@ -53,7 +53,7 @@
 
     <div class="text-label">Issue Created:</div> 
     <div class="text-display">
-      <%= @issue.created_at %>
+      <%= @issue.created_at.strftime("%B %d at %I:%M %p") %>
     </div>
   </div>
 </div>
