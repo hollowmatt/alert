@@ -1,11 +1,21 @@
 // Place all the styles related to the platform controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$primary-green: #366250;
+
 .header-row {
-  color: #366250;
-  border-bottom: 1px solid #366250 !important;
+  color: $primary-green;
+  border-bottom: 1px solid $primary-green !important;
   font-weight: bold;
   font-size: 16px;
   padding-bottom: 2px;
   margin-bottom: 4px;
+}
+
+.platform-description {
+  font-family: arial;
+  font-size: 12pt;
+  padding-left: 5px;
+  color: $primary-green;
+  margin-bottom: 15px;
 }
