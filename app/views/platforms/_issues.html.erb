@@ -25,7 +25,7 @@
         <%= issue.status %>
       </div>
       <div class="col-xs-2"> 
-        <%= issue.created_at.strftime("%B %d at %I:%M %p") %>
+        <%= issue.created_at.getlocal.strftime("%B %d at %I:%M %p") %>
       </div>
     </div>
   <% end %>
