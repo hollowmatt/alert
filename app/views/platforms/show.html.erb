@@ -16,12 +16,7 @@
   <%= @platform.description %>
 </p>
 
-<ul id="issues">
-  <% @platform.issues.each do |issue| %>
-    <li>
-      #<%= issue.id %> - <%= link_to issue.subject, [@platform, issue] %>
-    </li>
-  <% end %>
-</ul>
+<%= render "issues", platform: @platform %>
+
 
 

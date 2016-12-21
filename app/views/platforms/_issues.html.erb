@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row header-row">
+    <div class="col-xs-3">
+      Priority
+    </div>
+    <div class="col-xs-6">
+      Issue
+    </div>
+    <div class="col-xs-3">
+      Created
+    </div>
+  </div>
+  <% platform.issues.each do |issue| %>
+    <div class="row">
+      <div class="col-xs-3">
+        <%= issue.priority %>
+      </div>
+      <div class="col-xs-6">
+        <%= link_to issue.subject, [platform, issue] %>
+      </div>
+      <div class="col-xs-3"> 
+        <%= issue.created_at.strftime("%B %d at %I:%M %p") %>
+      </div>
+    </div>
+  <% end %>
+</div>
