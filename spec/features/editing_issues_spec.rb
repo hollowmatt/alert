@@ -1,8 +1,9 @@
 require "spec_helper"
 
 feature "users can edit existing issues" do 
+  let(:author) {FactoryGirl.create(:user)}
   let(:platform) {FactoryGirl.create(:platform)}
-  let(:issue) {FactoryGirl.create(:issue, platform: platform)}
+  let(:issue) {FactoryGirl.create(:issue, platform: platform, author: author)}
 
   before do 
     visit platform_issue_path(platform, issue)

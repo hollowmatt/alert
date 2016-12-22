@@ -25,7 +25,8 @@ class IssuesController < ApplicationController
 
 	def create
 		@issue = @platform.issues.build(issue_params)
-
+		@issue.author = current_user
+		
 		if @issue.save
 			flash[:notice] = "Issue has been created."
 			redirect_to [@platform, @issue]

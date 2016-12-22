@@ -1,7 +1,11 @@
 require 'spec_helper'
 
 feature "Users can create new issues" do 
+	
+	let(:user) { FactoryGirl.create(:user) }
+
 	before do 
+		login_as(user)
 		platform = FactoryGirl.create(:platform, name: "Caliber")
 		visit platform_path(platform)
 		click_link "New Issue"
@@ -18,6 +22,10 @@ feature "Users can create new issues" do
 		click_button "Create Issue"
 
 		expect(page).to have_content "Issue has been created."
+
+		within ("#issue") do
+			expect(page).to have_content "Creator: #{user.email}"
+		end
 	end
 
 	scenario "With invalid attributes" do 

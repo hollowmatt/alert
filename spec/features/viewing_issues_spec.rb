@@ -2,11 +2,12 @@ require 'spec_helper'
 
 feature "Users can view issues" do 
   before do
+    author = FactoryGirl.create(:user)
     caliber = FactoryGirl.create(:platform, name: 'Caliber')
-    FactoryGirl.create(:issue, platform: caliber, priority:'P1', subject: 'Caliber is down', issue: 'Caliber is dahn', impact: 'this is bad', status:'new')
+    FactoryGirl.create(:issue, platform: caliber, priority:'P1', author: author, subject: 'Caliber is down', issue: 'Caliber is dahn', impact: 'this is bad', status:'new')
 
     sap = FactoryGirl.create(:platform, name: 'SAP')
-    FactoryGirl.create(:issue, platform: sap, priority:'P3', subject: 'SAP is slow', issue: 'peeps cannnot see reports', impact: 'this is not terrible', status:'in process')
+    FactoryGirl.create(:issue, platform: sap, priority:'P3', author: author, subject: 'SAP is slow', issue: 'peeps cannnot see reports', impact: 'this is not terrible', status:'in process')
 
     visit "/"
   end

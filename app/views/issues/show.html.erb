@@ -14,15 +14,17 @@
       </li>
 	</div>
   <div class="row">
-    <div class="col-xs-12 col-md-4 <%= @issue.priority %>">
+    <div class="col-xs-12 col-md-3 <%= @issue.priority %>">
       <div class="text-label">Priority: </div> <%= @issue.priority %>
     </div>
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-3">
       <div class="text-label">Platform: </div> <%= @platform.name %>
     </div>
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-3">
       <div class="text-label">Ticket: </div> <%= @issue.ticket %>
     </div>
+    <div class="col-xs-12 col-md-3">
+      <div class="text-label">Creator: </div> <%= @issue.author.email %>
   </div>
   
   <div class="data-box">
