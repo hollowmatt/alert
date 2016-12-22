@@ -13,7 +13,7 @@
         <%=link_to @platform.name, platform_path(@platform), class: "back-btn" %>
       </li>
 	</div>
-  <div class="row">
+  <div class="row header-box">
     <div class="col-xs-12 col-md-3 <%= @issue.priority %>">
       <div class="text-label">Priority: </div> <%= @issue.priority %>
     </div>
@@ -25,37 +25,58 @@
     </div>
     <div class="col-xs-12 col-md-3">
       <div class="text-label">Creator: </div> <%= @issue.author.email %>
+    </div>
   </div>
-  
-  <div class="data-box">
-    <div class="text-label">Subject:</div>
-    <div class="text-display">
-      <%= simple_format(@issue.subject) %>
-    </div>
-    
-    <div class="text-label">Issue:</div>
-    <div class="text-display">
-      <%= simple_format(@issue.issue) %>
-    </div>
-    
-    <div class="text-label">Impact:</div>
-    <div class="text-display">
-      <%= simple_format(@issue.impact) %>
-    </div>
-
-    <div class="text-label">Status:</div>
-    <div class="text-display">
-      <%= simple_format(@issue.status) %>
-    </div>
-
-    <div class="text-label">Next Steps:</div> 
-    <div class="text-display">
-      <%= simple_format(@issue.next_steps) %>
-    </div>
-
-    <div class="text-label">Issue Created:</div> 
-    <div class="text-display">
-      <%= @issue.created_at.getlocal.strftime("%B %d at %I:%M %p") %>
+  <div class="container">
+    <div class="data-box">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-label">Subject:</div>
+          <div class="text-display">
+            <%= simple_format(@issue.subject) %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-label">Issue:</div>
+          <div class="text-display">
+            <%= simple_format(@issue.issue) %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-label">Impact:</div>
+          <div class="text-display">
+            <%= simple_format(@issue.impact) %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-label">Status:</div>
+          <div class="text-display">
+            <%= simple_format(@issue.status) %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-label">Next Steps:</div> 
+          <div class="text-display">
+            <%= simple_format(@issue.next_steps) %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-label">Issue Created:</div> 
+          <div class="text-display">
+            <%= @issue.created_at.getlocal.strftime("%B %d at %I:%M %p") %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
