@@ -13,19 +13,27 @@
       Created
     </div>
   </div>
-  <% platform.issues.each do |issue| %>
+  <% if platform.issues.count > 0 %>
+    <% platform.issues.each do |issue| %>
+      <div class="row">
+        <div class="col-xs-2">
+          <%= issue.priority %>
+        </div>
+        <div class="col-xs-6">
+          <%= link_to issue.subject, [platform, issue] %>
+        </div>
+        <div class="col-xs-2">
+          <%= issue.status %>
+        </div>
+        <div class="col-xs-2"> 
+          <%= issue.created_at.getlocal.strftime("%B %d at %I:%M %p") %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
     <div class="row">
-      <div class="col-xs-2">
-        <%= issue.priority %>
-      </div>
-      <div class="col-xs-6">
-        <%= link_to issue.subject, [platform, issue] %>
-      </div>
-      <div class="col-xs-2">
-        <%= issue.status %>
-      </div>
-      <div class="col-xs-2"> 
-        <%= issue.created_at.getlocal.strftime("%B %d at %I:%M %p") %>
+      <div class="col-xs-12 text-center">
+        There are no issues currently for this platform. <%= link_to "Create a new issue?", new_platform_issue_path(@platform) %>
       </div>
     </div>
   <% end %>
