@@ -4,6 +4,7 @@ feature "Users can create new platforms" do
 
   before do 
     visit "/"
+    login_as(FactoryGirl.create(:user, :admin))
     click_link "New Platform"
   end
 

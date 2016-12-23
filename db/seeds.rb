@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Admin User
+unless User.exists?(email: "admin@gmail.com")
+  users = User.create!(email: "admin@gmail.com", password: 'password', admin: true)
+end
+
+# Non-Admin User
+unless User.exists?(email: 'ima_user@gmail.com')
+  users = User.create!(email: 'ima_user@gmail.com', password: 'welcome', admin: false)
+end
+
+# NOOK Press Brannigan
+unless Platform.exists?(name: 'Brannigan')
+  platforms = Platform.create!(name: 'Brannigan', description: 'NOOK Press eBook platform UI')
+end
