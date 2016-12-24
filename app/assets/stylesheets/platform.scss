@@ -1,6 +1,9 @@
 // Place all the styles related to the platform controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$primary-green: #366250;
+
 .header-row {
   color: $primary-green;
   border-bottom: 1px solid $primary-green !important;

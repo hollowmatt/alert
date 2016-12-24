@@ -1,12 +1,21 @@
 require 'spec_helper'
+require 'capybara/rspec'
 
-describe Admin::ApplicationController do
+describe Admin::ApplicationController, type: :controller do
 
-  describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
-    end
+  let(:user) { FactoryGirl.create(:user) }
+
+  before do 
+    allow(controller).to receive(:authenticate_user!)
+    allow(controller).to receive(:current_user).and_return(user)
   end
 
+  context "non-admin users" do 
+    it "are not able to access the index action" do 
+      get :index
+
+      expect(response).to redirect_to "/"
+      expect(flash[:alert]).to eq "You must be an admin to access that page."
+    end
+  end  
 end

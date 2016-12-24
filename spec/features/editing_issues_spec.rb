@@ -1,4 +1,5 @@
 require "spec_helper"
+require 'capybara/rspec'
 
 feature "users can edit existing issues" do 
   let(:author) {FactoryGirl.create(:user)}
