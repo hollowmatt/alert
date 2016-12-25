@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>Users</h1>
+  <ul class="actions">
+    <li>
+      <%= link_to "New User", new_admin_user_path(), class: "new-btn" %>
+    </li>
+  </ul>
+</div>
+
+<div class="container">
+  <div class="row header-row">
+    <div class="col-xs-6">
+      Email
+    </div>
+    <div class="col-xs-3">
+      User Created 
+    </div>
+    <div class="col-xs-3">
+      Last Logged In
+    </div>
+  </div>
+  <% @users.each do |u| %>
+    <div class="row">
+      <div class="col-xs-6">
+       <%= link_to u.email, [:admin, u] %>
+      </div>
+      <div class="col-xs-3">
+        <%= u.created_at.getlocal.strftime("%B %d at %I:%M %p") %> 
+      </div>
+      <div class="col-xs-3">
+        <%=  u.last_sign_in_at ? u.last_sign_in_at.getlocal.strftime("%B %d at %I:%M %p") : 'never logged in' %> 
+      </div>
+    </div>
+  <% end %>
+</div>

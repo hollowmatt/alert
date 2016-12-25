@@ -43,9 +43,12 @@
             <li class="<%= "active" if current_page?("/users/sign_in") %>">
               <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
             </li>
-          <% end %> 
-
-          </li>
+          <% end %>
+          <% admins_only do %>
+            <li> 
+              <%= link_to "Admin", admin_root_path %>
+            </li>
+          <% end %>
         </ul>
         <% if user_signed_in? %>
           <div class="navbar-right">

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
   namespace :admin do
     root 'application#index'
     resources :platforms, only: [:new, :create, :update, :edit, :destroy]
+    resources :users
   end
 
   devise_for :users
