@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   namespace :admin do
     root 'application#index'
+    resources :platforms, only: [:new, :create, :update, :edit, :destroy]
   end
 
   devise_for :users
   root 'platforms#index'
 
-  resources :platforms do
+  resources :platforms, only: [:index, :show] do
     resources :issues
   end
   

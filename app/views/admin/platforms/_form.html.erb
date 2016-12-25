@@ -1,0 +1,6 @@
+<%= simple_form_for([:admin, platform]) do |f| %>
+ 
+  <%= f.input :name %><br>
+  <%= f.input :description %> <br>
+  <%= f.button :submit, class: "save-btn" %>
+<% end %>

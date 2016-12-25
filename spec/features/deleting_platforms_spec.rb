@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 feature "Users can delete platforms" do 
+  before do 
+    login_as(FactoryGirl.create(:user, :admin))
+  end
+  
   scenario "successful delete" do 
     FactoryGirl.create(:platform, name: "NOOK Dot Com")
 
