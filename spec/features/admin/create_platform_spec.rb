@@ -1,10 +1,11 @@
 require 'spec_helper'
 
 feature "Users can create new platforms" do 
+  let(:admin) { FactoryGirl.create(:user, :admin) }
 
   before do 
+    login_as(admin)
     visit "/"
-    login_as(FactoryGirl.create(:user, :admin))
     click_link "New Platform"
   end
 
