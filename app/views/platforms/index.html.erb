@@ -1,8 +1,10 @@
 <div class="page-header">
   <h1>Platforms</h1>
-  <ul class="actions">
-    <li><%= link_to "New Platform", new_admin_platform_path, class: "new-btn" %></li>
-  </ul>
+  <% admins_only do %>
+    <ul class="actions">
+      <li><%= link_to "New Platform", new_admin_platform_path, class: "new-btn" %></li>
+    </ul>
+  <% end %>
 </div>
 
 <div id="platforms">
