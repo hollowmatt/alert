@@ -22,7 +22,7 @@
   <% @users.each do |u| %>
     <div class="row">
       <div class="col-xs-6">
-       <%= link_to u.email, [:admin, u] %>
+       <%= link_to u, [:admin, u] %>
       </div>
       <div class="col-xs-3">
         <%= u.created_at.getlocal.strftime("%B %d at %I:%M %p") %> 
