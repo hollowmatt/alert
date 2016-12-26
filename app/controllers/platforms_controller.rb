@@ -5,7 +5,10 @@ class PlatformsController < ApplicationController
   def index
     @platforms = Platform.all
   end
-  
+
+  def show
+    authorize @platform, :show?
+  end
 
   private
 

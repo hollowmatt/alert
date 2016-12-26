@@ -126,6 +126,8 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     public_suffix (2.0.4)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (1.6.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -240,6 +242,7 @@ DEPENDENCIES
   minitest
   mysql2 (~> 0.3.18)
   pry-rails
+  pundit
   rails (= 4.2.5)
   rails_utils
   react-rails

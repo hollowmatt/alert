@@ -16,6 +16,7 @@ gem 'rails_utils'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'simple_form'
+gem 'pundit'
 
 
 group :development, :test do
