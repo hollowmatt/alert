@@ -6,6 +6,8 @@ feature "users should be able to delete a Issue" do
   let(:issue) {FactoryGirl.create(:issue, platform: platform, author: author)}
 
   before do 
+    login_as(author)
+    assign_role!(author, :viewer, platform)
     visit platform_issue_path(platform, issue)
   end
 

@@ -10,6 +10,8 @@ feature "Users can view issues" do
     FactoryGirl.create(:issue, platform: sap, priority:'P3', author: author, subject: 'SAP is slow', issue: 'peeps cannnot see reports', impact: 'this is not terrible', status:'in process')
 
     visit "/"
+    login_as(author)
+    assign_role!(author, :viewer, caliber)
   end
 
   scenario 'for a given platform' do

@@ -10,19 +10,12 @@ feature "Users can only see the appropriate links/buttons" do
       visit "/"
       expect(page).not_to have_link "New Platform"
     end
-    scenario "Cannot see the delete platform button" do 
-      visit platform_path(platform)
-      expect(page).not_to have_link "Delete Platform" 
-    end
-    scenario "Cannot see the edit platform button" do 
-      visit platform_path(platform)
-      expect(page).not_to have_link "Edit Platform" 
-    end
   end
 
   context "normal users" do 
     before do 
       login_as(user)
+      assign_role!(user, :viewer, platform)
     end
 
     scenario "Cannot see new Platform button" do 

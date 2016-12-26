@@ -2,27 +2,42 @@ require 'spec_helper'
 
 RSpec.describe PlatformPolicy do
 
-  let(:user) { User.new }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:platform) { FactoryGirl.create(:platform) }
 
   subject { described_class }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
   permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+    it "blocks anonymous users" do 
+      expect(subject).not_to permit(nil, platform)
+    end
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+    it "allows viewers of the project" do 
+      assign_role!(user, :viewer, platform)
+      expect(subject).to permit(user, platform)
+    end
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+    it "allows editors of the project" do 
+      assign_role!(user, :editor, platform)
+      expect(subject).to permit(user, platform)
 
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    end
+
+    it "allows managers of the project" do 
+      assign_role!(user, :manager, platform)
+      expect(subject).to permit(user, platform)
+    end
+
+    it "allows admins" do 
+      admin = FactoryGirl.create(:user, :admin)
+      expect(subject).to permit(admin, platform)
+    end
+
+    it "doesn't allow users of other projects" do 
+      other_platform = FactoryGirl.create(:platform, name: 'Other')
+      assign_role!(user, :viewer, other_platform)
+      expect(subject).not_to permit(user, platform)
+    end
+
   end
 end

@@ -4,4 +4,8 @@ class PlatformPolicy < ApplicationPolicy
       scope
     end
   end
+
+  def show?
+    user.try(:admin?) || record.roles.exists?(user_id: user)
+  end
 end
