@@ -5,6 +5,9 @@
     <li>
       <%= link_to "Edit User", [:edit, :admin, @user], class: "edit-btn" %>
     </li>
+    <li>
+      <%= link_to "Archive User", [:archive, :admin, @user], class: "delete-btn", method: :patch, data: {confirm: "Are you sure you want to archive this user?"} %>
+    </li>
    </ul>
 </div>
 <div class="row">

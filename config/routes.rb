@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'application#index'
     resources :platforms, only: [:new, :create, :update, :edit, :destroy]
-    resources :users
+    resources :users do 
+      member do 
+        patch :archive
+      end
+    end
   end
 
   devise_for :users
