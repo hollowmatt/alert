@@ -25,6 +25,13 @@ body {
 	}
 }
 
+.col-header {
+  color: $primary-green;
+  font-weight: bold;
+  padding-right: 4px;
+  float: left;
+}
+
 ul.actions {
 	@extend .list-unstyled;
 	@extend .list-inline;

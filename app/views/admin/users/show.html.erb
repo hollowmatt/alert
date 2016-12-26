@@ -1,0 +1,29 @@
+<% title(@user.email, "Users") %>
+<div class="page-header">
+  <h1><%= @user.email %><h1>
+  <ul class="actions">
+    <li>
+      <%= link_to "Edit User", [:edit, :admin, @user], class: "edit-btn" %>
+    </li>
+   </ul>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="col-header">Email:</div> <%=@user.email%>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="col-header">User Type:</div> <%= @user.user_type %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="col-header">Created Date:</div> <%= @user.create_date %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="col-header">Last Logged In:</div> <%= @user.last_log_in %>
+  </div>
+</div>

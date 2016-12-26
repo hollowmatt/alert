@@ -25,10 +25,10 @@
        <%= link_to u, [:admin, u] %>
       </div>
       <div class="col-xs-3">
-        <%= u.created_at.getlocal.strftime("%B %d at %I:%M %p") %> 
+        <%= u.create_date %> 
       </div>
       <div class="col-xs-3">
-        <%=  u.last_sign_in_at ? u.last_sign_in_at.getlocal.strftime("%B %d at %I:%M %p") : 'never logged in' %> 
+        <%=  u.last_log_in %> 
       </div>
     </div>
   <% end %>

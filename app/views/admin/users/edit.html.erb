@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h1>Edit User: <%= @user.email %></h1>
+  <ul class="actions">
+    <li>
+      <%= link_to "Cancel", admin_user_path(@user), class: "cancel-btn" %>
+    </li>
+  </ul>
+</div>
+
+<%= render "form", user: @user %>
