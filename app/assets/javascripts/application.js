@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flash').fadeOut(300, function() { $(this).remove(); });
+  }, 3000);
+ });
+
