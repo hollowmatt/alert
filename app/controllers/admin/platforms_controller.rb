@@ -1,7 +1,7 @@
 class Admin::PlatformsController < Admin::ApplicationController
 
-  before_filter :current_platform, only: [:destroy, :update, :edit]
-
+  before_filter :current_platform, only: [:destroy] 
+  
   def new
     @platform = Platform.new
   end
@@ -10,16 +10,6 @@ class Admin::PlatformsController < Admin::ApplicationController
     @platform.destroy
     flash[:notice] = "Platform has been deleted."
     redirect_to platforms_path
-  end
-
-  def update
-    if @platform.update(platform_params)
-      flash[:notice] = "Platform updated"
-      redirect_to @platform
-    else
-      flash.now[:alert] = "Platform has not been updated."
-      render "edit"
-    end
   end
 
   def create
