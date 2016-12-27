@@ -1,11 +1,13 @@
 require "spec_helper"
 
 feature "Users can edit existing projects" do 
-  let(:user) { FactoryGirl.create(:user, :admin) }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:platform) { FactoryGirl.create(:platform, name: "NOOK Dot Com") }
 
   before do 
+    assign_role!(user, :manager, platform)
     login_as(user)
-    FactoryGirl.create(:platform, name: "NOOK Dot Com")
+    
     visit "/"
     click_link "NOOK Dot Com"
     click_link "Edit Platform"

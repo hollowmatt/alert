@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'platforms#index'
 
-  resources :platforms, only: [:index, :show] do
+  resources :platforms, only: [:index, :show, :edit, :update] do
     resources :issues
   end
   

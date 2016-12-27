@@ -26,10 +26,7 @@ feature "Users can only see the appropriate links/buttons" do
       visit platform_path(platform)
       expect(page).not_to have_link "Delete Platform" 
     end
-    scenario "Cannot see the edit platform button" do 
-      visit platform_path(platform)
-      expect(page).not_to have_link "Edit Platform" 
-    end
+
   end
 
   context "admin users" do 
