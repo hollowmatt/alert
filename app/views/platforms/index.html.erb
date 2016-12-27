@@ -7,14 +7,6 @@
   <% end %>
 </div>
 
-<div class="remove_me">
-  <% if current_user %>
-    <p> user = <%= current_user.email %> </p>
-  <% else %>
-    <p> no user logged in </p>
-  <% end %>
-</div>
-
 <div id="platforms">
   <% @platforms.each do |p| %>
     <div class="row">
