@@ -7,6 +7,30 @@ RSpec.describe PlatformPolicy do
 
   subject { described_class }
 
+  context "policy_scope" do 
+    subject { Pundit.policy_scope(user, Platform) }
+    let!(:platform) { FactoryGirl.create(:platform) }
+    let(:user) { FactoryGirl.create(:user) }
+
+    it "is empty for anonymous users" do 
+      expect(Pundit.policy_scope(nil, Platform)).to be_empty
+    end
+
+    it "includes platforms a user is allowed to see" do 
+      assign_role!(user, :viewer, platform)
+      expect(subject).to include(platform)
+    end
+
+    it "doesn't include platforms a user isn't allowed to see" do 
+      expect(subject).to be_empty
+    end
+
+    it "returns all platforms for an admin" do 
+      user.admin = true
+      expect(subject).to include(platform)
+    end
+  end
+
   permissions :show? do
     it "blocks anonymous users" do 
       expect(subject).not_to permit(nil, platform)

@@ -14,4 +14,10 @@ feature "Users can view platforms" do
     click_link "NOOK Dot Com"
     expect(page.current_url).to eq platform_url(platform)
   end
+
+  scenario "unless they don't have permission" do 
+    FactoryGirl.create(:platform, name: 'Hidden')
+    visit "/"
+    expect(page).not_to have_content("Hidden")
+  end
 end

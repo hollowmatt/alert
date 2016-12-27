@@ -3,7 +3,7 @@ class PlatformsController < ApplicationController
   before_filter :current_platform, only: [:show]
 
   def index
-    @platforms = Platform.all
+    @platforms = policy_scope(Platform)
   end
 
   def show
