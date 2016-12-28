@@ -37,7 +37,7 @@ class IssuesController < ApplicationController
 	end
 
 	def show
-		
+		authorize @issue, :show?	
 	end
 
 	private

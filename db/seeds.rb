@@ -13,10 +13,21 @@ end
 
 # Non-Admin User
 unless User.exists?(email: 'ima_user@gmail.com')
-  users = User.create!(email: 'ima_user@gmail.com', password: 'welcome', admin: false)
+  users = User.create!(email: 'ima_user@gmail.com', password: 'welcome99', admin: false)
+end
+
+# Manager User
+unless User.exists?(email: 'nip@nap.com')
+	users = User.create!(email: 'nip@nap.com', password: 'welcome99', admin: false)
 end
 
 # NOOK Press Brannigan
 unless Platform.exists?(name: 'Brannigan')
   platforms = Platform.create!(name: 'Brannigan', description: 'NOOK Press eBook platform UI')
 end
+
+# NPS
+unless Platform.exists?(name: 'NPS')
+	platforms = Platform.create!(name: 'NPS', description: 'NOOK Press Services platform')
+end
+
