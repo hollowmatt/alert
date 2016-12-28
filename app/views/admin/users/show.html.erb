@@ -30,3 +30,17 @@
     <div class="col-header">Last Logged In:</div> <%= @user.last_log_in %>
   </div>
 </div>
+
+<header>
+  <h2>Roles</h2>
+</header>
+
+<% if @user.roles.any? %>
+  <ul>
+    <% @user.roles.each do |role| %>
+      <li><%= role.platform.name %>: <%= role.role.titleize %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>This user has no roles assigned.</p>
+<% end %>

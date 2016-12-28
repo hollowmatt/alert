@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  has_many :roles
+         
   scope :excluding_archived, lambda { where(archived_at: nil) }
 
   def to_s
@@ -32,6 +33,10 @@ class User < ActiveRecord::Base
 
   def inactive_message
     archived_at.nil? ? super : :archived
+  end
+
+  def role_on(platform)
+    roles.find_by(platform_id: platform).try(:name)
   end
 
 end
