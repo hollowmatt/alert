@@ -33,7 +33,7 @@
   <% else %>
     <div class="row">
       <div class="col-xs-12 text-center">
-        There are no issues currently for this platform. <%= link_to "Create a new issue?", new_platform_issue_path(@platform) %>
+        There are no issues currently for this platform. <% if policy(Issue.new(platform: @platform)).create? %> <%= link_to "Create a new issue?", new_platform_issue_path(@platform) %> <% end %>
       </div>
     </div>
   <% end %>

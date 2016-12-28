@@ -33,6 +33,11 @@ feature "Users can only see the appropriate links/buttons" do
       expect(page).not_to have_link "Edit Platform" 
     end
 
+    scenario "Cannot see the new issue link" do 
+      visit platform_path(platform)
+      expect(page).not_to have_link "New Issue"
+    end
+
   end
 
   context "manager users" do 
@@ -56,6 +61,11 @@ feature "Users can only see the appropriate links/buttons" do
       expect(page).to have_link "Edit Platform" 
     end
 
+    scenario "Can see the new issue link" do 
+      visit platform_path(platform)
+      expect(page).to have_link "New Issue"
+    end
+
   end
 
   context "admin users" do 
@@ -67,13 +77,20 @@ feature "Users can only see the appropriate links/buttons" do
       visit "/"
       expect(page).to have_link "New Platform"
     end
+    
     scenario "Should see the delete platform button" do 
       visit platform_path(platform)
       expect(page).to have_link "Delete Platform" 
     end
+    
     scenario "Should see the edit platform button" do 
       visit platform_path(platform)
       expect(page).to have_link "Edit Platform" 
+    end
+    
+    scenario "Can see the new issue link" do 
+      visit platform_path(platform)
+      expect(page).to have_link "New Issue"
     end
   end
 end
