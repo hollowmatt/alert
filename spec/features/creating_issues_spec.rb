@@ -7,7 +7,7 @@ feature "Users can create new issues" do
 	before do 
 		login_as(user)
 		platform = FactoryGirl.create(:platform, name: "Caliber")
-		assign_role!(user, :viewer, platform)
+		assign_role!(user, :editor, platform)
 		visit platform_path(platform)
 		click_link "New Issue"
 	end

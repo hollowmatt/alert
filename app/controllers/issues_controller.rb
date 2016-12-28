@@ -5,6 +5,7 @@ class IssuesController < ApplicationController
 
 	def new
 		@issue = @platform.issues.build
+		authorize @issue, :create?
 	end
 
 	def destroy
@@ -26,6 +27,7 @@ class IssuesController < ApplicationController
 	def create
 		@issue = @platform.issues.build(issue_params)
 		@issue.author = current_user
+		authorize @issue, :create?
 		
 		if @issue.save
 			flash[:notice] = "Issue has been created."

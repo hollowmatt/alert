@@ -8,4 +8,9 @@ class IssuePolicy < ApplicationPolicy
   def show?
     user.try(:admin?) || record.platform.has_member?(user)
   end
+
+  def create?
+    user.try(:admin?) || record.platform.has_manager?(user) ||
+     record.platform.has_editor?(user)
+  end
 end
