@@ -44,6 +44,11 @@ feature "Users can only see the appropriate links/buttons" do
       expect(page).not_to have_link "Edit Issue"
     end
 
+    scenario "Cannot see the delete issue link" do 
+      visit platform_issue_path(platform, issue)
+      expect(page).not_to have_link "Delete Issue"
+    end
+
   end
 
   context "manager users" do 
@@ -77,6 +82,11 @@ feature "Users can only see the appropriate links/buttons" do
       expect(page).to have_link "Edit Issue"
     end
 
+    scenario "Can see the delete issue link" do 
+      visit platform_issue_path(platform, issue)
+      expect(page).to have_link "Delete Issue"
+    end
+
   end
 
   context "admin users" do 
@@ -107,6 +117,11 @@ feature "Users can only see the appropriate links/buttons" do
     scenario "Can see the edit issue link" do 
       visit platform_issue_path(platform, issue)
       expect(page).to have_link "Edit Issue"
+    end
+
+    scenario "Can see the delete issue link" do 
+      visit platform_issue_path(platform, issue)
+      expect(page).to have_link "Delete Issue"
     end
   end
 end
