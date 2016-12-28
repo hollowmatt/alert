@@ -31,71 +31,47 @@ RSpec.describe PlatformPolicy do
     end
   end
 
-  permissions :show? do
-    it "blocks anonymous users" do 
-      expect(subject).not_to permit(nil, platform)
-    end
+  context "permissions" do 
+    subject{ PlatformPolicy.new(user, platform) }
 
-    it "allows viewers of the project" do 
-      assign_role!(user, :viewer, platform)
-      expect(subject).to permit(user, platform)
-    end
-
-    it "allows editors of the project" do 
-      assign_role!(user, :editor, platform)
-      expect(subject).to permit(user, platform)
-
-    end
-
-    it "allows managers of the project" do 
-      assign_role!(user, :manager, platform)
-      expect(subject).to permit(user, platform)
-    end
-
-    it "allows admins" do 
-      admin = FactoryGirl.create(:user, :admin)
-      expect(subject).to permit(admin, platform)
-    end
-
-    it "doesn't allow users of other projects" do 
-      other_platform = FactoryGirl.create(:platform, name: 'Other')
-      assign_role!(user, :viewer, other_platform)
-      expect(subject).not_to permit(user, platform)
-    end
-  end
-
-  permissions :update? do 
     let(:user) { FactoryGirl.create(:user) }
     let(:platform) { FactoryGirl.create(:platform) }
 
-    it "blocks anonymous users" do 
-      expect(subject).not_to permit(nil, platform)
+    context "for anonymous users" do 
+      it { should_not permit_action :show }
+      it { should_not permit_action :update }
     end
 
-    it "doesn't allow viewers of the project" do 
-      assign_role!(user, :viewer, platform)
-      expect(subject).not_to permit(user, platform)
+    context "for viewers of the platform" do 
+      before { assign_role!(user, :viewer, platform) }
+      it { should permit_action :show }
+      it { should_not permit_action :update }
     end
 
-    it "doesn't allow editors of the project" do 
-      assign_role!(user, :editor, platform)
-      expect(subject).not_to permit(user, platform)
+    context "for editors of the platform" do 
+      before { assign_role!(user, :editor, platform) }
+      it { should permit_action :show }
+      it { should_not permit_action :update }
     end
 
-    it "allows managers of the project" do 
-      assign_role!(user, :manager, platform)
-      expect(subject).to permit(user, platform)
+    context "for managers of the platform" do 
+      before { assign_role!(user, :manager, platform) }
+      it { should permit_action :show }
+      it { should permit_action :update }
     end
 
-    it "allows admins" do 
-      admin = FactoryGirl.create(:user, :admin)
-      expect(subject).to permit(admin, platform)
+    context "for managers of another platform" do 
+      before { assign_role!(user, :editor, FactoryGirl.create(:platform)) }
+      it { should_not permit_action :show }
+      it { should_not permit_action :update }
     end
-
-    it "doesn't allow managers of other projects" do 
-      other_platform = FactoryGirl.create(:platform)
-      assign_role!(user, :manager, other_platform)
-      expect(subject).not_to permit(user, platform)
+     
+    context "for admins" do 
+      let(:user) { FactoryGirl.create(:user, :admin) }
+      it { should permit_action :show }
+      it { should permit_action :update }
     end
+     
   end
+
 end

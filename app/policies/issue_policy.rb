@@ -5,7 +5,7 @@ class IssuePolicy < ApplicationPolicy
     end
   end
 
-  # def show?
-
-  # end
+  def show?
+    user.try(:admin?) || record.platform.roles.exists?(user_id: user)
+  end
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PlatformsController do
+describe PlatformsController, type: :controller do
   it "handles a missing platform correctly" do 
     get :show, id: 'not-here'
     expect(response).to redirect_to(platforms_path)

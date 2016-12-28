@@ -1,28 +1,45 @@
 require 'spec_helper'
 
 RSpec.describe IssuePolicy do
+  
 
-  let(:user) { User.new }
+  context "permissions" do 
+    subject{ IssuePolicy.new(user, issue) }
 
-  subject { described_class }
+    let(:user) { FactoryGirl.create(:user) }
+    let(:platform) { FactoryGirl.create(:platform) }
+    let(:issue) { FactoryGirl.create(:issue, platform: platform) }
+    
+    context "for anonymous users" do 
+      let(:user) { nil }
+      it { should_not permit_action :show }
+    end
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+    context "for viewers of the platform" do 
+      before { assign_role!(user, :viewer, platform) }
+      it { should permit_action :show }
+    end
+
+    context "for editors of the platform" do 
+      before { assign_role!(user, :editor, platform) }
+      it { should permit_action :show }
+    end
+
+    context "for managers of the platform" do 
+      before { assign_role!(user, :manager, platform) }
+      it { should permit_action :show }
+    end
+
+    context "for managers of another platform" do 
+      before { assign_role!(user, :editor, FactoryGirl.create(:platform)) }
+      it { should_not permit_action :show }
+    end
+     
+    context "for admins" do 
+      let(:user) { FactoryGirl.create(:user, :admin) }
+      it { should permit_action :show }
+    end
+     
   end
-
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  
 end
