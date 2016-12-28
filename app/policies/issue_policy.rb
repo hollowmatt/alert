@@ -17,6 +17,10 @@ class IssuePolicy < ApplicationPolicy
     writable?
   end
 
+  def destroy?
+    user.try(:admin?)  || record.platform.has_manager?(user)
+  end
+
   private
     def writable?
       user.try(:admin?) || record.platform.has_manager?(user) ||

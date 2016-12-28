@@ -7,7 +7,7 @@ feature "users should be able to delete a Issue" do
 
   before do 
     login_as(author)
-    assign_role!(author, :viewer, platform)
+    assign_role!(author, :manager, platform)
     visit platform_issue_path(platform, issue)
   end
 

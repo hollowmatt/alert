@@ -15,6 +15,7 @@ RSpec.describe IssuePolicy do
       it { should_not permit_action :show }
       it { should_not permit_action :create }
       it { should_not permit_action :update }
+      it { should_not permit_action :destroy }
     end
 
     context "for viewers of the platform" do 
@@ -22,6 +23,7 @@ RSpec.describe IssuePolicy do
       it { should permit_action :show }
       it { should_not permit_action :create }
       it { should_not permit_action :update }
+      it { should_not permit_action :destroy }
     end
 
     context "for editors of the platform" do 
@@ -29,6 +31,7 @@ RSpec.describe IssuePolicy do
       it { should permit_action :show }
       it { should permit_action :create }
       it { should permit_action :update }
+      it { should_not permit_action :destroy }
     end
 
     context "for managers of the platform" do 
@@ -36,6 +39,7 @@ RSpec.describe IssuePolicy do
       it { should permit_action :show }
       it { should permit_action :create }
       it { should permit_action :update }
+      it { should permit_action :destroy }
     end
 
     context "for managers of another platform" do 
@@ -43,6 +47,7 @@ RSpec.describe IssuePolicy do
       it { should_not permit_action :show }
       it { should_not permit_action :create }
       it { should_not permit_action :update }
+      it { should_not permit_action :destroy }
     end
      
     context "for admins" do 
@@ -50,6 +55,7 @@ RSpec.describe IssuePolicy do
       it { should permit_action :show }
       it { should permit_action :create }
       it { should permit_action :update }
+      it { should permit_action :destroy }
     end
      
   end

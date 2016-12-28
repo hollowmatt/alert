@@ -9,6 +9,7 @@ class IssuesController < ApplicationController
 	end
 
 	def destroy
+		authorize @issue, :destroy?
 		@issue.destroy
     flash[:notice] = "Issue has been deleted."
     redirect_to @platform
@@ -20,7 +21,7 @@ class IssuesController < ApplicationController
 
 	def update
 		authorize @issue, :update?
-		
+
 		if @issue.update(issue_params)
       flash[:notice] = "Issue has been updated."
       redirect_to [@platform, @issue]
