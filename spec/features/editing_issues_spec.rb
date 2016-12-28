@@ -6,7 +6,7 @@ feature "users can edit existing issues" do
   let(:issue) {FactoryGirl.create(:issue, platform: platform, author: author)}
 
   before do 
-    assign_role!(author, :viewer, platform)
+    assign_role!(author, :editor, platform)
     login_as(author)
     visit platform_issue_path(platform, issue)
     click_link "Edit Issue"

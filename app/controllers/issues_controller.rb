@@ -14,7 +14,13 @@ class IssuesController < ApplicationController
     redirect_to @platform
 	end
 
+	def edit
+		authorize @issue, :update?
+	end
+
 	def update
+		authorize @issue, :update?
+		
 		if @issue.update(issue_params)
       flash[:notice] = "Issue has been updated."
       redirect_to [@platform, @issue]
@@ -28,7 +34,7 @@ class IssuesController < ApplicationController
 		@issue = @platform.issues.build(issue_params)
 		@issue.author = current_user
 		authorize @issue, :create?
-		
+
 		if @issue.save
 			flash[:notice] = "Issue has been created."
 			redirect_to [@platform, @issue]

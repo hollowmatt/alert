@@ -10,7 +10,18 @@ class IssuePolicy < ApplicationPolicy
   end
 
   def create?
-    user.try(:admin?) || record.platform.has_manager?(user) ||
-     record.platform.has_editor?(user)
+    writable?
   end
+
+  def update?
+    writable?
+  end
+
+  private
+    def writable?
+      user.try(:admin?) || record.platform.has_manager?(user) ||
+        record.platform.has_editor?(user)
+    end
 end
+
+
