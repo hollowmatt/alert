@@ -6,6 +6,6 @@ class IssuePolicy < ApplicationPolicy
   end
 
   def show?
-    user.try(:admin?) || record.platform.roles.exists?(user_id: user)
+    user.try(:admin?) || record.platform.has_member?(user)
   end
 end
