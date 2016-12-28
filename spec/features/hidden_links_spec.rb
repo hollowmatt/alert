@@ -4,6 +4,7 @@ feature "Users can only see the appropriate links/buttons" do
   let(:user) { FactoryGirl.create(:user) }
   let(:admin) { FactoryGirl.create(:user, :admin) }
   let(:platform) { FactoryGirl.create(:platform) }
+  let(:issue) { FactoryGirl.create(:issue, platform: platform, author: user) }
   
   context "anonymous users" do 
     scenario "Cannot see the new platform button" do
@@ -38,6 +39,11 @@ feature "Users can only see the appropriate links/buttons" do
       expect(page).not_to have_link "New Issue"
     end
 
+    scenario "Cannot see the edit issue link" do 
+      visit platform_issue_path(platform, issue)
+      expect(page).not_to have_link "Edit Issue"
+    end
+
   end
 
   context "manager users" do 
@@ -66,6 +72,11 @@ feature "Users can only see the appropriate links/buttons" do
       expect(page).to have_link "New Issue"
     end
 
+    scenario "Can see the edit issue link" do 
+      visit platform_issue_path(platform, issue)
+      expect(page).to have_link "Edit Issue"
+    end
+
   end
 
   context "admin users" do 
@@ -91,6 +102,11 @@ feature "Users can only see the appropriate links/buttons" do
     scenario "Can see the new issue link" do 
       visit platform_path(platform)
       expect(page).to have_link "New Issue"
+    end
+
+    scenario "Can see the edit issue link" do 
+      visit platform_issue_path(platform, issue)
+      expect(page).to have_link "Edit Issue"
     end
   end
 end
