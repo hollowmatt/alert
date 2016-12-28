@@ -24,4 +24,19 @@ feature "Admins can manager a user's roles" do
     expect(page).to have_content "Caliber: Viewer"
     expect(page).to have_content "Mercury DB: Manager"
   end
+
+  scenario "when assigning roles to a new user" do 
+    visit new_admin_user_path
+
+    fill_in "Email", with: "newuser@gmail.com"
+    fill_in "Password", with: "password"
+
+    select "Editor", from: "Caliber"
+    click_button "Create User"
+
+    click_link "newuser@gmail.com"
+    expect(page).to have_content "Caliber: Editor"
+    expect(page).not_to have_content "Mercury DB"
+  end
+
 end
