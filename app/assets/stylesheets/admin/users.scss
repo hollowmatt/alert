@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .roles {
-  @extend .table;
-  @extend .form-horizontal;
+  @extend .table !optional;
+  @extend .form-horizontal !optional;
 
   tr:first-child {
     td, th {
@@ -13,10 +13,10 @@
   }
 
   label {
-    @extend .control-label;
+    @extend .control-label !optional;
   }
 
   select {
-    @extend .form-control;
+    @extend .form-control !optional;
   }
 }
