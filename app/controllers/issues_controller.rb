@@ -55,7 +55,7 @@ class IssuesController < ApplicationController
 		client = Mailgun::Client.new ENV['api_key']
 		html_output = render_to_string template: "issue_mailer/send_email"
     message_params = {:from => ENV['username'],
-                      :to => @issue.author.email,
+                      :to => determine_sendto(@issue.priority),
                       :subject => build_subject(@platform, @issue),
                       :text => @issue.issue,
                       :html => html_output.to_str
@@ -100,4 +100,17 @@ class IssuesController < ApplicationController
     	end
     end
 
+    def determine_sendto(priority)
+      case priority
+      when "P1"
+        'np_p1_mail@nookeng.com'
+      when "P2"
+        'np_p2_mail@nookeng.com'
+      when "P3"
+        'np_p3_mail@nookeng.com'
+      else
+        'hollowmatt@gmail.com'
+      end
+    end
+    
 end
