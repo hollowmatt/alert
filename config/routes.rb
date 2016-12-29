@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   root 'platforms#index'
 
   resources :platforms, only: [:index, :show, :edit, :update] do
-    resources :issues
+    resources :issues do 
+      member do
+        get :send_message
+      end
+    end
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-label">Subject:</div>
+      <div class="text-display">
+        <%= simple_format(@issue.subject) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-label">Issue:</div>
+      <div class="text-display">
+        <%= simple_format(@issue.issue) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-label">Impact:</div>
+      <div class="text-display">
+        <%= simple_format(@issue.impact) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-label">Status:</div>
+      <div class="text-display">
+        <%= simple_format(@issue.status) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-label">Next Steps:</div> 
+      <div class="text-display">
+        <%= simple_format(@issue.next_steps) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-label">Issue Created:</div> 
+      <div class="text-display">
+        <%= @issue.created_at.getlocal.strftime("%B %d at %I:%M %p") %>
+      </div>
+    </div>
+  </div>
+</div>

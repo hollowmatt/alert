@@ -61,7 +61,7 @@ ul.actions {
 	}
 }
 
-.edit-btn, .delete-btn, .home-btn, .cancel-btn, .save-btn, .back-btn, .signin-btn, .signup-btn {
+.edit-btn, .delete-btn, .home-btn, .cancel-btn, .save-btn, .back-btn, .signin-btn, .signup-btn, .email-btn {
 	@extend .btn;
 
 	&:before {
@@ -131,6 +131,14 @@ ul.actions {
 
 	&:before {
 		@extend .fa-save;
+	}
+}
+
+.email-btn {
+	@extend .btn-success;
+
+	&:before {
+		@extend .fa-envelope-o;
 	}
 }
 

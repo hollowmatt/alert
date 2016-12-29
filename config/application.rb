@@ -33,6 +33,9 @@ module Alert
     config.active_record.raise_in_transactional_callbacks = true
     config.generators.javascript_engine = :js
 
+    #load the services folder
+    config.autoload_paths += %W(#{config.root}/services)
+    
     #use a local config file: note, also put in .gitignore
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'local_env.yml')

@@ -24,6 +24,7 @@ group :development, :test do
   gem 'byebug'
   gem 'test-unit'
   gem 'minitest'
+  gem 'email_spec', "~> 1.6.0"
 end
 
 group :development do
