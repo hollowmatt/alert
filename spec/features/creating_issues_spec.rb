@@ -68,4 +68,25 @@ feature "Users can create new issues" do
 			expect(page).to  have_content "speed.txt"
 		end
 	end
+
+	scenario "persist file uploads across form submissions" do
+		attach_file "File", "spec/fixtures/speed.txt"
+		click_button "Create Issue"
+
+		select "P3", from: "Priority"
+		fill_in "Subject", with: "Page is rendering without CSS"
+		fill_in "Issue", with: "Some pages look funny"
+		fill_in "Impact", with: "This makes us look bad"
+		fill_in "Ticket", with: "UPRESS-1234"
+		fill_in "Status", with: "New"
+		fill_in "Next steps", with: "Look at attached file, make fix"
+		click_button "Create Issue"
+
+		expect(page).to have_content "Issue has been created."
+
+		within("#issue .attachment") do 
+			expect(page).to  have_content "speed.txt"
+		end
+	end
+
 end

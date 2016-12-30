@@ -59,6 +59,6 @@ class IssuesController < ApplicationController
 		end
 
 		def issue_params
-			params.require(:issue).permit(:priority, :subject, :issue, :impact, :ticket, :status, :next_steps, :attachment)
+			params.require(:issue).permit(:priority, :subject, :issue, :impact, :ticket, :status, :next_steps, :attachment, :attachment_cache)
 		end
 end
