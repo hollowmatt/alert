@@ -7,4 +7,5 @@ class Issue < ActiveRecord::Base
   validates :issue, presence: true
   validates :impact, presence: true
   validates :status, presence: true
+  mount_uploader :attachment, AttachmentUploader
 end

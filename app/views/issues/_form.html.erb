@@ -7,6 +7,7 @@
 	<%= f.input :ticket %>
 	<%= f.input :status %>
 	<%= f.input :next_steps %>
+  <%= f.input :attachment, as: :file, label: 'File' %>
 	<%= f.button :submit, class: "btn-primary" %>
 
 <% end %>

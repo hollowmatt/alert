@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226204853) do
+ActiveRecord::Schema.define(version: 20161230152039) do
 
   create_table "issues", force: :cascade do |t|
     t.string   "priority"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20161226204853) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "author_id"
+    t.string   "attachment"
   end
 
   add_index "issues", ["author_id"], name: "index_issues_on_author_id"

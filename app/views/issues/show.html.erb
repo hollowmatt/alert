@@ -81,6 +81,16 @@
           </div>
         </div>
       </div>
+      <% if @issue.attachment.present? %>
+        <div class="row attachment">
+          <div class="col-xs-12">
+            <div class="text-label">Attachment:</div> 
+            <div class="text-display">
+              <%= link_to File.basename(@issue.attachment.url), @issue.attachment.url %> (<%= number_to_human_size(@issue.attachment.size)%>)
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
