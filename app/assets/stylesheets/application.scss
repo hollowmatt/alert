@@ -157,10 +157,14 @@ ul.actions {
 	color: black;
 }
 
-.attachments {
+.remove-me {
 	color: red;
   border: 1px solid red !important;
   font-weight: bold;
   font-size: 16px;
   padding: 4px;
+}
+
+.attachments {
+	padding: 5px;
 }

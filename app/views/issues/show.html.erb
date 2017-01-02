@@ -86,10 +86,7 @@
           <h4>Attachments:</h4>
           <% @issue.attachments.each do |attachment| %>
             <div class="col-xs-12">
-              <div class="text-label">Attachment</div> 
-              <div class="text-display">
-                <%= link_to File.basename(attachment.file.url), attachment.file.url %> (<%= number_to_human_size(attachment.file.size)%>)
-              </div>
+              <%= link_to File.basename(attachment.file.url), attachment.file.url %> (<%= number_to_human_size(attachment.file.size)%>)
             </div>
           <% end %>
         </div>
