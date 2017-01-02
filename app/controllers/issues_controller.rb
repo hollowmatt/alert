@@ -6,6 +6,7 @@ class IssuesController < ApplicationController
 	def new
 		@issue = @platform.issues.build
 		authorize @issue, :create?
+		3.times { @issue.attachments.build }
 	end
 
 	def destroy
@@ -59,6 +60,6 @@ class IssuesController < ApplicationController
 		end
 
 		def issue_params
-			params.require(:issue).permit(:priority, :subject, :issue, :impact, :ticket, :status, :next_steps, :attachment, :attachment_cache)
+			params.require(:issue).permit(:priority, :subject, :issue, :impact, :ticket, :status, :next_steps, attachments_attributes: [:file, :file_cache])
 		end
 end

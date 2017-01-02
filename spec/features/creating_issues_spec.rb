@@ -59,18 +59,18 @@ feature "Users can create new issues" do
 		fill_in "Ticket", with: "UPRESS-1234"
 		fill_in "Status", with: "New"
 		fill_in "Next steps", with: "Look at attached file, make fix"
-		attach_file "File", "spec/fixtures/speed.txt"
+		attach_file "File #1", "spec/fixtures/speed.txt"
 		click_button "Create Issue"
 
 		expect(page).to have_content "Issue has been created."
 
-		within("#issue .attachment") do 
+		within("#issue .attachments") do 
 			expect(page).to  have_content "speed.txt"
 		end
 	end
 
 	scenario "persist file uploads across form submissions" do
-		attach_file "File", "spec/fixtures/speed.txt"
+		attach_file "File #1", "spec/fixtures/speed.txt"
 		click_button "Create Issue"
 
 		select "P3", from: "Priority"
@@ -84,9 +84,32 @@ feature "Users can create new issues" do
 
 		expect(page).to have_content "Issue has been created."
 
-		within("#issue .attachment") do 
+		within("#issue .attachments") do 
 			expect(page).to  have_content "speed.txt"
 		end
 	end
 
+	scenario "with multiple attachments" do 
+		select "P3", from: "Priority"
+		fill_in "Subject", with: "Page is rendering without images"
+		fill_in "Issue", with: "Pages look funny without pictures"
+		fill_in "Impact", with: "This makes us look daft"
+		fill_in "Ticket", with: "UPRESS-5678"
+		fill_in "Status", with: "New"
+		fill_in "Next steps", with: "Look at attached files, make fix"
+
+		attach_file "File #1", "spec/fixtures/jaypegs.txt"
+		attach_file "File #2", "spec/fixtures/bitmaps.txt"
+		attach_file "File #3", "spec/fixtures/gifs.txt"
+
+		click_button "Create Issue"
+
+		expect(page).to have_content "Issue has been created."
+
+		within("#issue .attachments") do 
+			expect(page).to  have_content "jaypegs.txt"
+			expect(page).to  have_content "bitmaps.txt"
+			expect(page).to  have_content "gifs.txt"
+		end
+	end
 end
