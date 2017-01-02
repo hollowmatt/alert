@@ -7,11 +7,12 @@
 	<%= f.input :ticket %>
 	<%= f.input :status %>
 	<%= f.input :next_steps %>
-	<%= f.simple_fields_for :attachments do |ff| %>
-	  <%= ff.input :file, as: :file, label: "File ##{ff.index + 1}" %>
-	  <%= ff.input :file_cache, as: :hidden %>
-	<% end %>
-
+	<div id="attachments">
+	  <h3>Attachments</h3>
+	  <%= render partial: "attachments/form", locals: { f: f, index: 0} %>
+  </div>
+	<%= link_to "Add another file", new_attachment_path, remote: true, id: "add_file", data: { params: { index: issue.attachments.size } } %>
+	
 	<%= f.button :submit, class: "btn-primary" %>
 
 <% end %>

@@ -6,7 +6,7 @@ class IssuesController < ApplicationController
 	def new
 		@issue = @platform.issues.build
 		authorize @issue, :create?
-		3.times { @issue.attachments.build }
+		@issue.attachments.build 
 	end
 
 	def destroy

@@ -89,7 +89,7 @@ feature "Users can create new issues" do
 		end
 	end
 
-	scenario "with multiple attachments" do 
+	scenario "with multiple attachments", js: true do 
 		select "P3", from: "Priority"
 		fill_in "Subject", with: "Page is rendering without images"
 		fill_in "Issue", with: "Pages look funny without pictures"
@@ -98,18 +98,13 @@ feature "Users can create new issues" do
 		fill_in "Status", with: "New"
 		fill_in "Next steps", with: "Look at attached files, make fix"
 
-		attach_file "File #1", "spec/fixtures/jaypegs.txt"
-		attach_file "File #2", "spec/fixtures/bitmaps.txt"
-		attach_file "File #3", "spec/fixtures/gifs.txt"
-
+		attach_file "File #1", Rails.root.join("spec/fixtures/jaypegs.txt")
 		click_button "Create Issue"
 
 		expect(page).to have_content "Issue has been created."
 
 		within("#issue .attachments") do 
 			expect(page).to  have_content "jaypegs.txt"
-			expect(page).to  have_content "bitmaps.txt"
-			expect(page).to  have_content "gifs.txt"
 		end
 	end
 end
