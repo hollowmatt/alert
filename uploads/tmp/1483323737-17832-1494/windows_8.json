@@ -1,0 +1,205 @@
+
+{
+    "header-logo": "/images/us/windows_8/Logo_NOOK_Windows8.png",
+    "download-from-windows-store": {
+        "all-logo": "/images/us/windows_8/Logo_WindowsStore_All.png",
+        "bag-logo": "/images/us/windows_8/Logo_WindowsStore_Bag.png"
+    },
+    "download-free": "Download FREE",
+    "from-windows-store": "from the Windows Store",
+    "learn-about-bn-header": "Learn more about bn-sarl...",
+    "learn-about-bn-copy": "Learn more about bn-sarl o set up a new account! Just log in, shop, download your reads, and pay with MS Wallet ...",
+    "slides": [
+        {
+            "title": "Meet NOOK for Windows 8",
+            "subtitle": "The must-have reading and shopping experience for Windows 8 PCs and Tablets from the world’s largest bookseller. ",
+            "hero": {
+                "mobile": "/images/us/windows_8/mobile/Slide_1_mobile.png",
+                "mobile-wide": "/images/us/windows_8/mobile-wide/Slide_1_mobile.png",
+                "desktop": "/images/us/windows_8/desktop/Slide_1.png"
+            }
+        },
+        {
+            "title": "Huge Selection of Books and Magazines",
+            "subtitle": "Choose from thousands of books, popular magazines, newspapers & comics. Browse great content selected by knowledgeable booksellers.",
+            "eans": [
+                "9780385537865",
+                "9780440339373",
+                "9781476727660",
+                "2940000281048"
+            ],
+            "hero": {}
+        },
+        {
+            "title": "Incredible Magazine Experience",
+            "subtitle": "NOOK for Windows 8 offers magazines with crystal clear text and built-in video for seamless reading. Flip through issues with just a touch.",
+            "hero": {
+                "mobile": "/images/us/windows_8/mobile/Slide_3_mobile.png",
+                "mobile-wide": "/images/us/windows_8/mobile-wide/Slide_3_mobile.png",
+                "desktop": "/images/us/windows_8/desktop/Slide_3.png"
+            }
+        },
+        {
+            "title": "Read What You Love, However You Like",
+            "subtitle": "Customize your reading experience with different font styles, text sizes and themes. Plus, side-load your own ePub and PDF files so you can read files you already have.",
+            "hero": {
+                "mobile": "/images/us/windows_8/mobile/Slide_4_mobile.png",
+                "mobile-wide": "/images/us/windows_8/mobile-wide/Slide_4_mobile.png",
+                "desktop": "/images/us/windows_8/desktop/Slide_4.png"
+            }
+        }
+    ],
+    "offer-banner": {
+        "available": false,
+        "huge-copy": "3 FREE BOOKS!",
+        "copy": "When you download NOOK for Windows 8.",
+        "terms-link": "Terms & Conditions",
+        "terms-copy": "TBD"
+    },
+    "pods": [
+        {
+            "heading": "Use Your Microsoft Account",
+            "copy": [
+                "No need to set up a new account! Just log in, shop and download your reads, then pay with your Microsoft account - without ever leaving the app.",
+                "Click <a href='http://login.live.com'> here </a> for Microsoft account help."
+            ]
+        },
+        {
+            "heading": "Sample Books for FREE",
+            "copy": [
+                "Find everything from classics to new releases and romance to adventure. Want to try before you buy? Download a FREE sample!"
+            ]
+        },
+        {
+            "heading": "Try Bestselling Magazines FREE",
+            "copy": [
+                "NOOK for Windows 8 has your favorite magazines and newspapers. Try any title FREE for 14 days."
+            ]
+        }
+    ],
+    "footer": {
+        "join-our-mailing-list": "Join our mailing list",
+        "sign-up": "Sign Up",
+        "country-selector": {
+            "title": "Language Selector",
+            "mobile-title": "Language",
+            "selections": [
+                {
+                    "locale": "en_US",
+                    "label": "US (English)",
+                    "href": "http://www.bn.com",
+                    "selected": "true"
+                },
+                {
+                    "locale": "en_UK",
+                    "label": "UK (English)",
+                    "href": "http://uk.nook.com"
+                },
+                {
+                    "locale": "en_AU",
+                    "label": "Australia (English)"
+                },
+                {
+                    "locale": "fr_BE",
+                    "label": "Belgium (French)"
+                },
+                {
+                    "locale": "nl_BE",
+                    "label": "Belgium (Dutch)"
+                },
+                {
+                    "locale": "de_BE",
+                    "label": "Belgium (German)"
+                },
+                {
+                    "locale": "en_CA",
+                    "label": "Canada (English)"
+                },
+                {
+                    "locale": "fr_CA",
+                    "label": "Canada (French)"
+                },
+                {
+                    "locale": "fr_FR",
+                    "label": "France (French)"
+                },
+                {
+                    "locale": "de_DE",
+                    "label": "Germany (German)"
+                },
+                {
+                    "locale": "it_IT",
+                    "label": "Italy (Italian)"
+                },
+                {
+                    "locale": "nl_NL",
+                    "label": "Netherlands (Dutch)"
+                },
+                {
+                    "locale": "es_ES",
+                    "label": "Spain (Spanish)"
+                },
+                {
+                    "locale": "de_CH",
+                    "label": "Switzerland (German)"
+                },
+                {
+                    "locale": "fr_CH",
+                    "label": "Switzerland (French)"
+                },
+                {
+                    "locale": "it_CH",
+                    "label": "Switzerland (Italian)"
+                }
+            ]
+        },
+        "your-information": [
+            "Your information will be held in accordance with our",
+            {
+                "copy": "Privacy Policy",
+                "href": "http://www.nook.com/services/cms/doc/us/en_us/legal/nook-privacy.html"
+            }
+        ],
+        "legal-links": {
+            "header": "Useful Links",
+            "links": [
+                {
+                    "copy": "NOOK App Terms of Service",
+                    "href": "http://www.nook.com/services/cms/doc/us/en_us/legal/nook-app-terms-win8.html"
+                },
+                {
+                    "copy": "NOOK Store Terms of Service",
+                    "href": "http://www.nook.com/services/cms/doc/us/en_us/legal/nook-store-terms.html"
+                },
+                {
+                    "copy": "Trademarks",
+                    "href": "http://www.nook.com/services/cms/doc/us/en_us/legal/trademarks.html"
+                },
+                {
+                    "copy": "Privacy Policy",
+                    "href": "http://www.nook.com/services/cms/doc/us/en_us/legal/nook-privacy.html"
+                },
+                {
+                    "copy": "FAQ",
+                    "href": "http://www.nook.com/us/windows/faq"
+                }
+            ]
+        },
+        "customer-support": {
+            "header": "Contact Us",
+            "links": [
+                {
+                    "copy": "Email: nookforwindows@book.com",
+                    "href": "mailto:nookforwindows@book.com?subject=NOOK for Windows 8 Support (US-US)"
+                }
+            ]
+        },
+        "copyright": "Terms of Use, Copyright, and Privacy Policy © 1997-2013 Barnesandnoble.com llc",
+        "bn-sarl": "Barnes and Noble S.a.r.l",
+        "nook-press": {
+            "logo-url": "/images/windows_8/nookpresslogo.png",
+            "copy": "Publish your own eBook now - reach millions of US & UK readers with NOOK Press",
+            "href": "https://www.nookpress.com/"
+        }
+    }
+}
