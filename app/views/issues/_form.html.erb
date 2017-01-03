@@ -11,8 +11,9 @@
 	  <h3>Attachments</h3>
 	  <%= render partial: "attachments/form", locals: { f: f, index: 0} %>
   </div>
-	<%= link_to "Add another file", new_attachment_path, remote: true, id: "add_file", data: { params: { index: issue.attachments.size } } %>
-	
+  <div id="addmore">
+	<%= link_to "Add another file", new_attachment_path, remote: true, id: "add_file", data: { params: { index: issue.attachments.size } }, class: "add-btn" %>
+	</div>
 	<%= f.button :submit, class: "btn-primary" %>
 
 <% end %>
