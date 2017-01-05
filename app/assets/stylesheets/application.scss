@@ -13,8 +13,25 @@ body {
 	padding-top: 70px;
 }
 .navbar {
-	background-color: #e3f2fd;
+	background-color: $white;
+	border-bottom: 3px solid $primary-green !important;
 }
+
+.navbar-nav {
+    > li {
+      > a {
+        color: $primary-green;
+        &:hover,  &:focus {
+          color: $action-blue; }}}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $action-blue;
+        background-color: $ghost-grey; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $action-blue;
+        background-color: $ghost-grey; }}}
+
 
 .page-header {
 	position: relative;

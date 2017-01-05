@@ -34,13 +34,23 @@
 <header>
   <h2>Roles</h2>
 </header>
-
 <% if @user.roles.any? %>
-  <ul>
-    <% @user.roles.each do |role| %>
-      <li><%= role.platform.name %>: <%= role.role.titleize %></li>
-    <% end %>
-  </ul>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Platform</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.roles.each do |role| %>
+        <tr>
+          <td><%= role.platform.name %></td>
+          <td><%= role.role.titleize %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
   <p>This user has no roles assigned.</p>
 <% end %>
