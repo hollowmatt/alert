@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170101234702) do
+ActiveRecord::Schema.define(version: 20170106030333) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20170101234702) do
   end
 
   add_index "attachments", ["issue_id"], name: "index_attachments_on_issue_id"
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "text"
+    t.integer  "issue_id"
+    t.integer  "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["author_id"], name: "index_comments_on_author_id"
+  add_index "comments", ["issue_id"], name: "index_comments_on_issue_id"
 
   create_table "issues", force: :cascade do |t|
     t.string   "priority"

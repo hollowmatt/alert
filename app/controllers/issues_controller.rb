@@ -48,6 +48,7 @@ class IssuesController < ApplicationController
 
 	def show
 		authorize @issue, :show?	
+		@comment = @issue.comments.build
 	end
 
 	private
