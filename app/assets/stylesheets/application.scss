@@ -49,6 +49,13 @@ body {
   float: left;
 }
 
+.header {
+	color: $primary-green;
+	font-weight: bold;
+	border-bottom: 1px solid $primary-green;
+	margin-bottom: 3px;
+}
+
 ul.actions {
 	@extend .list-unstyled;
 	@extend .list-inline;
