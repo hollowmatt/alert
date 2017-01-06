@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 20170106030333) do
     t.text     "issue"
     t.text     "impact"
     t.string   "ticket"
+    t.text     "status"
     t.text     "next_steps"
     t.integer  "platform_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "author_id"
-    t.string   "status"
   end
 
   add_index "issues", ["author_id"], name: "index_issues_on_author_id"
