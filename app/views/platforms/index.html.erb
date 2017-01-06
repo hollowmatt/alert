@@ -8,13 +8,27 @@
 </div>
 
 <div id="platforms">
+  <div class="row">
+    <div class="col-md-2 header">
+     Platform
+    </div>
+    <div class="col-md-6 header">
+      Description
+    </div>
+    <div class="col-md-4 header">
+      # of Issues
+    </div> 
+  </div>
   <% @platforms.each do |p| %>
     <div class="row">
       <div class="col-md-2">
        <%= link_to "#{p.name}", platform_path(p) %>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-6">
         <%= p.description %> 
+      </div>
+      <div class="col-md-4">
+        <%= p.issues.count %>
       </div>
     </div>
   <% end %>
