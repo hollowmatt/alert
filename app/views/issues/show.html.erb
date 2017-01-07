@@ -91,6 +91,19 @@
           <% end %>
         </div>
       <% end %>
+      <div class="page-header">
+        <h3>Comments</h3>
+      </div>
+      <div id="comments">
+        <% if @issue.comments.persisted.any? %>
+          <%= render @issue.comments.persisted %>
+        <% else %>
+          <p> There are no comments... </p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+<% if policy(@comment).create? %>
+  <%= render "comments/form", issue: @issue, comment: @comment %>
+<% end %>

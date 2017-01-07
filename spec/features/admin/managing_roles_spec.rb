@@ -21,8 +21,10 @@ feature "Admins can manager a user's roles" do
     expect(page).to have_content "User has been updated"
 
     click_link user.email
-    expect(page).to have_content "Caliber: Viewer"
-    expect(page).to have_content "Mercury DB: Manager"
+    expect(page).to have_content "Caliber"
+    expect(page).to have_content "Viewer"
+    expect(page).to have_content "Mercury DB"
+    expect(page).to have_content "Manager"
   end
 
   scenario "when assigning roles to a new user" do 
@@ -35,7 +37,8 @@ feature "Admins can manager a user's roles" do
     click_button "Create User"
 
     click_link "newuser@gmail.com"
-    expect(page).to have_content "Caliber: Editor"
+    expect(page).to have_content "Caliber"
+    expect(page).to have_content "Editor"
     expect(page).not_to have_content "Mercury DB"
   end
 

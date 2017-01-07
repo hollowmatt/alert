@@ -49,6 +49,11 @@ feature "Users can only see the appropriate links/buttons" do
       expect(page).not_to have_link "Delete Issue"
     end
 
+    scenario "Cannot see the comment form" do 
+      visit platform_issue_path(platform, issue)
+      expect(page).not_to have_heading "New Comment"
+    end
+
   end
 
   context "manager users" do 
@@ -87,6 +92,11 @@ feature "Users can only see the appropriate links/buttons" do
       expect(page).to have_link "Delete Issue"
     end
 
+    scenario "Can see the comment form" do 
+      visit platform_issue_path(platform, issue)
+      expect(page).to have_heading "New Comment"
+    end
+
   end
 
   context "admin users" do 
@@ -122,6 +132,11 @@ feature "Users can only see the appropriate links/buttons" do
     scenario "Can see the delete issue link" do 
       visit platform_issue_path(platform, issue)
       expect(page).to have_link "Delete Issue"
+    end
+
+    scenario "Can see the comment form" do 
+      visit platform_issue_path(platform, issue)
+      expect(page).to have_heading "New Comment"
     end
   end
 end
