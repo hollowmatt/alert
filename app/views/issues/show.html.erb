@@ -104,4 +104,6 @@
     </div>
   </div>
 </div>
-<%= render "comments/form", issue: @issue, comment: @comment %>
+<% if policy(@comment).create? %>
+  <%= render "comments/form", issue: @issue, comment: @comment %>
+<% end %>
