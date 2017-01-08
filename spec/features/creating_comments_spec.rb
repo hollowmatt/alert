@@ -4,7 +4,8 @@ feature "users can comment on issues" do
 	let(:user) { FactoryGirl.create(:user) }
 	let(:platform) { FactoryGirl.create(:platform) }
 	let(:status) { FactoryGirl.create(:status, name: 'New') }
-	let(:issue) { FactoryGirl.create(:issue, platform: platform, author: user, status: status) }
+	let(:priority)  { FactoryGirl.create(:priority) }
+	let(:issue) { FactoryGirl.create(:issue, platform: platform, author: user, status: status, priority: priority) }
 
 	before do 
 		login_as(user)

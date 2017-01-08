@@ -7,6 +7,7 @@ feature "Users can create new issues" do
 	before do 
 		login_as(user)
 		FactoryGirl.create(:status, name: "New")
+		FactoryGirl.create(:priority)
 		platform = FactoryGirl.create(:platform, name: "Caliber")
 		assign_role!(user, :editor, platform)
 		visit platform_path(platform)
@@ -53,7 +54,7 @@ feature "Users can create new issues" do
 	end
 
 	scenario "with an attachment" do 
-		select "P3", from: "Priority"
+		select "P1", from: "Priority"
 		fill_in "Subject", with: "Page is rendering without CSS"
 		fill_in "Issue", with: "Some pages look funny"
 		fill_in "Impact", with: "This makes us look bad"
@@ -71,6 +72,7 @@ feature "Users can create new issues" do
 	end
 
 	scenario "persist file uploads across form submissions" do
+		FactoryGirl.create(:priority, name: 'P3')
 		attach_file "File #1", "spec/fixtures/speed.txt"
 		click_button "Create Issue"
 
@@ -91,6 +93,7 @@ feature "Users can create new issues" do
 	end
 
 	scenario "with multiple attachments", js: true do 
+		FactoryGirl.create(:priority, name: 'P3')
 		select "P3", from: "Priority"
 		fill_in "Subject", with: "Page is rendering without images"
 		fill_in "Issue", with: "Pages look funny without pictures"

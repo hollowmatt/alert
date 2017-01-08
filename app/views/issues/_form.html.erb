@@ -1,6 +1,6 @@
 <%= simple_form_for([platform, issue]) do |f| %>
 	
-	<%= f.input :priority, collection: ['P1', 'P2', 'P3'], selected: 'P1' %>
+	<%= f.association :priority %>
 	<%= f.input :subject %>
 	<%= f.input :issue %>
 	<%= f.input :impact %>

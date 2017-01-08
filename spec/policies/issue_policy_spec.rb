@@ -9,7 +9,8 @@ RSpec.describe IssuePolicy do
     let(:user) { FactoryGirl.create(:user) }
     let(:platform) { FactoryGirl.create(:platform) }
     let(:status) { FactoryGirl.create(:status) }
-    let(:issue) { FactoryGirl.create(:issue, platform: platform, status: status) }
+    let(:priority) { FactoryGirl.create(:priority) }
+    let(:issue) { FactoryGirl.create(:issue, platform: platform, status: status, priority: priority) }
     
     context "for anonymous users" do 
       let(:user) { nil }
