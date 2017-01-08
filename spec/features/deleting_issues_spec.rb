@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 feature "users should be able to delete a Issue" do 
-  let(:author) {FactoryGirl.create(:user)}
-  let(:platform) {FactoryGirl.create(:platform)}
-  let(:issue) {FactoryGirl.create(:issue, platform: platform, author: author)}
+  let(:author) {FactoryGirl.create(:user) }
+  let(:platform) {FactoryGirl.create(:platform) }
+  let(:status) { FactoryGirl.create(:status) }
+  let(:issue) {FactoryGirl.create(:issue, platform: platform, author: author, status: status) }
 
   before do 
     login_as(author)

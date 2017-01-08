@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106030333) do
+ActiveRecord::Schema.define(version: 20170107201640) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file"
@@ -39,16 +39,17 @@ ActiveRecord::Schema.define(version: 20170106030333) do
     t.text     "issue"
     t.text     "impact"
     t.string   "ticket"
-    t.text     "status"
     t.text     "next_steps"
     t.integer  "platform_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "author_id"
+    t.integer  "status_id"
   end
 
   add_index "issues", ["author_id"], name: "index_issues_on_author_id"
   add_index "issues", ["platform_id"], name: "index_issues_on_platform_id"
+  add_index "issues", ["status_id"], name: "index_issues_on_status_id"
 
   create_table "platforms", force: :cascade do |t|
     t.string   "name"
@@ -67,6 +68,11 @@ ActiveRecord::Schema.define(version: 20170106030333) do
 
   add_index "roles", ["platform_id"], name: "index_roles_on_platform_id"
   add_index "roles", ["user_id"], name: "index_roles_on_user_id"
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

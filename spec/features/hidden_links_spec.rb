@@ -4,7 +4,8 @@ feature "Users can only see the appropriate links/buttons" do
   let(:user) { FactoryGirl.create(:user) }
   let(:admin) { FactoryGirl.create(:user, :admin) }
   let(:platform) { FactoryGirl.create(:platform) }
-  let(:issue) { FactoryGirl.create(:issue, platform: platform, author: user) }
+  let(:status) { FactoryGirl.create(:status) }
+  let(:issue) { FactoryGirl.create(:issue, platform: platform, author: user, status: status) }
   
   context "anonymous users" do 
     scenario "Cannot see the new platform button" do

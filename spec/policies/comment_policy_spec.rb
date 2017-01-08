@@ -7,7 +7,8 @@ RSpec.describe CommentPolicy do
 
     let(:user) { FactoryGirl.create(:user) }
     let(:platform) { FactoryGirl.create(:platform) }
-    let(:issue) { FactoryGirl.create(:issue, platform: platform) }
+    let(:status) { FactoryGirl.create(:status) }
+    let(:issue) { FactoryGirl.create(:issue, platform: platform, status: status) }
     let(:comment) { FactoryGirl.create(:comment, issue: issue)}
     
     context "for anonymous users" do 

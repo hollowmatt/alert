@@ -3,7 +3,8 @@ require 'spec_helper'
 feature "users can comment on issues" do 
 	let(:user) { FactoryGirl.create(:user) }
 	let(:platform) { FactoryGirl.create(:platform) }
-	let(:issue) { FactoryGirl.create(:issue, platform: platform, author: user) }
+	let(:status) { FactoryGirl.create(:status, name: 'New') }
+	let(:issue) { FactoryGirl.create(:issue, platform: platform, author: user, status: status) }
 
 	before do 
 		login_as(user)

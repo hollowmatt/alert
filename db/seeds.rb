@@ -31,3 +31,19 @@ unless Platform.exists?(name: 'NPS')
 	platforms = Platform.create!(name: 'NPS', description: 'NOOK Press Services platform')
 end
 
+# Status
+unless Status.exists?(name: 'New')
+	statuses = Status.create!(name: 'New', color: 'red')
+end
+
+unless Status.exists?(name: 'In Progress')
+	statuses = Status.create!(name: 'In Progress', color: 'orange')
+end
+
+unless Status.exists?(name: 'Resolved')
+	statuses = Status.create!(name: 'Resolved', color: 'blue')
+end
+
+unless Status.exists?(name: 'Closed')
+	statuses = Status.create!(name: 'Closed', color: 'green')
+end
