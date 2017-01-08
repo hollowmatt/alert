@@ -47,3 +47,15 @@ end
 unless Status.exists?(name: 'Closed')
 	statuses = Status.create!(name: 'Closed', color: 'green')
 end
+
+unless Priority.exists?(name: "P1")
+	priorities = Priority.create!(name: 'P1')
+end
+
+unless Priority.exists?(name: "P2")
+	priorities = Priority.create!(name: 'P2')
+end
+
+unless Priority.exists?(name: "P3")
+	priorities = Priority.create!(name: 'P3')
+end

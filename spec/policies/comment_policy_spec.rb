@@ -8,8 +8,9 @@ RSpec.describe CommentPolicy do
     let(:user) { FactoryGirl.create(:user) }
     let(:platform) { FactoryGirl.create(:platform) }
     let(:status) { FactoryGirl.create(:status) }
-    let(:issue) { FactoryGirl.create(:issue, platform: platform, status: status) }
-    let(:comment) { FactoryGirl.create(:comment, issue: issue)}
+    let(:priority) { FactoryGirl.create(:priority) }
+    let(:issue) { FactoryGirl.create(:issue, platform: platform, status: status, priority: priority) }
+    let(:comment) { FactoryGirl.create(:comment, issue: issue) }
     
     context "for anonymous users" do 
       let(:user) { nil }

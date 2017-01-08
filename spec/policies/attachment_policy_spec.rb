@@ -7,7 +7,8 @@ RSpec.describe AttachmentPolicy do
     let(:user) { FactoryGirl.create(:user) }
     let(:platform) { FactoryGirl.create(:platform) }
     let(:status) { FactoryGirl.create(:status) }
-    let(:issue) { FactoryGirl.create(:issue, platform: platform, status: status) }
+    let(:priority) { FactoryGirl.create(:priority) }
+    let(:issue) { FactoryGirl.create(:issue, platform: platform, status: status, priority: priority) }
     let(:attachment) { FactoryGirl.create(:attachment, issue: issue, 
       file_to_attach: "spec/fixtures/speed.txt") }
     

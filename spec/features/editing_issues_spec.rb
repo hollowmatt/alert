@@ -1,10 +1,11 @@
 require "spec_helper"
 
 feature "users can edit existing issues" do 
-  let(:author) {FactoryGirl.create(:user)}
-  let(:platform) {FactoryGirl.create(:platform)}
+  let(:author) { FactoryGirl.create(:user)}
+  let(:platform) { FactoryGirl.create(:platform) }
   let(:status) { FactoryGirl.create(:status) }
-  let(:issue) {FactoryGirl.create(:issue, platform: platform, author: author, status: status)}
+  let(:priority) { FactoryGirl.create(:priority) }
+  let(:issue) { FactoryGirl.create(:issue, platform: platform, author: author, status: status, priority: priority) }
 
   before do 
     assign_role!(author, :editor, platform)

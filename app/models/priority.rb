@@ -1,5 +1,5 @@
-class Status < ActiveRecord::Base
-
+class Priority < ActiveRecord::Base
+	
 	validates :name, uniqueness: true
 	
 	def to_s
