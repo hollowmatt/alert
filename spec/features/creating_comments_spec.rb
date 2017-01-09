@@ -30,4 +30,22 @@ feature "users can comment on issues" do
 
 		expect(page).to have_content "Comment has not been created"
 	end
+
+	scenario "when changing an issue's status" do 
+		FactoryGirl.create(:status, name: 'In Progress')
+		visit platform_issue_path(platform, issue)
+		fill_in "Text", with: "Added a comment"
+		select "In Progress", from: 'Status'
+		click_button "Create Comment"
+
+		expect(page).to have_content "Comment has been created"
+
+		within("#comments") do 
+			expect(page).to have_content "Added a comment"
+		end
+
+		within("#issue") do 
+			expect(page).to have_content "In Progress"
+		end
+	end
 end

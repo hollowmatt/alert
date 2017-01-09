@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108193634) do
+ActiveRecord::Schema.define(version: 20170108213455) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170108193634) do
     t.integer  "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "status_id"
   end
 
   add_index "comments", ["author_id"], name: "index_comments_on_author_id"
