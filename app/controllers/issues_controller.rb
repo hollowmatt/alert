@@ -7,6 +7,7 @@ class IssuesController < ApplicationController
 		@issue = @platform.issues.build
 		authorize @issue, :create?
 		@issue.attachments.build 
+		@issue.status_id = Status.find_by_name("New") == nil ? nil : Status.find_by_name("New").id
 	end
 
 	def destroy
@@ -49,6 +50,7 @@ class IssuesController < ApplicationController
 	def show
 		authorize @issue, :show?	
 		@comment = @issue.comments.build
+		@comment = @issue.comments.build(status_id: @issue.status_id)
 	end
 
 	private
