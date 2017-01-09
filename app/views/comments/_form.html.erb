@@ -4,5 +4,6 @@
 
 <%= simple_form_for [issue, comment] do |f| %>
 	<%= f.input :text %>
+	<%= f.association :status %>
 	<%= f.submit class: "btn btn-primary" %>
 <% end %>
