@@ -15,7 +15,7 @@
   </div>
   <% if platform.issues.count > 0 %>
     <% platform.issues.order(:priority_id).each do |issue| %>
-      <div class="row">
+      <div class="row datarow">
         <div class="col-xs-2">
           <%= issue.priority %>
         </div>
@@ -23,7 +23,7 @@
           <%= link_to issue.subject, [platform, issue] %>
         </div>
         <div class="col-xs-2">
-          <%= issue.status %>
+          <span class="status" style="background-color: <%=issue.status.color%>;"><%= issue.status %></span>
         </div>
         <div class="col-xs-2"> 
           <%= issue.created_at.getlocal.strftime("%B %d at %I:%M %p") %>

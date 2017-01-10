@@ -20,3 +20,14 @@
   color: $primary-green;
   margin-bottom: 15px;
 }
+
+.status {
+  @extend .label;
+  @extend .label-default;
+  font-size: 12px;
+  padding: 0.3em 0.6em;
+}
+
+.datarow {
+  padding-bottom: 5px;
+}
