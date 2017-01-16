@@ -6,6 +6,8 @@ feature "users can receive notifications about ticket updates" do
   let(:platform) { FactoryGirl.create(:platform) }
   let(:status) { FactoryGirl.create(:status) }
   let(:priority) { FactoryGirl.create(:priority) }
+  let(:distlist) { FactoryGirl.create(:distlist, priority: priority, platform: platform, email: alice.email) }
+  
   let(:issue) do 
     FactoryGirl.create(:issue, 
       platform: platform, 
@@ -20,6 +22,7 @@ feature "users can receive notifications about ticket updates" do
 
     login_as(bob)
     visit platform_issue_path(platform, issue)
+    puts distlist
   end
 
   scenario "ticket author automatically receives notification" do 
@@ -27,7 +30,7 @@ feature "users can receive notifications about ticket updates" do
     click_button "Create Comment"
 
     email = find_email!(alice.email)
-    expected_subject = "SERVICE ALERT: #{status} | #{priority} | #{platform.name}: #{issue.title}"
+    expected_subject = "SERVICE ALERT: #{status} | #{priority} | #{platform.name}: #{issue.subject}"
     expect(email.subject).to eq expected_subject
 
     click_first_link_in_email(email)

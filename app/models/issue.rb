@@ -13,5 +13,9 @@ class Issue < ActiveRecord::Base
   validates :issue, presence: true
   validates :impact, presence: true
   validates :status, presence: true
+
+  def watchers
+    Distlist.where(:priority => priority, :platform  => platform)
+  end
   
 end
