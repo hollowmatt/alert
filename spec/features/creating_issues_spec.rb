@@ -37,7 +37,6 @@ feature "Users can create new issues" do
 		expect(page).to have_content "Subject can't be blank"
 		expect(page).to have_content "Issue can't be blank"
 		expect(page).to have_content "Impact can't be blank"
-		expect(page).to have_content "Status can't be blank"
 	end
 
 	scenario "with an invalid subject" do 
