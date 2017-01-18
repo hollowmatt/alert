@@ -1,1 +1,14 @@
+<%= @platform.name %>
+Subject: <%=@issue.subject %> 
+
+Issue: <%= @issue.issue %>
+
+Impact: <%= @issue.impact %>
+
+Status: <%= @issue.status %>
+
+Ticket has been updated.  <%=@comment.author.email %> wrote: 
+  <%= @comment.text %>
+
+Please go to the site to see the full ticket information at: 
 <%= platform_issue_url(@platform, @issue) %>
