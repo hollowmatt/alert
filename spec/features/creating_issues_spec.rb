@@ -91,7 +91,7 @@ feature "Users can create new issues" do
 		end
 	end
 
-	scenario "with multiple attachments", js: true do 
+	xit  "with multiple attachments", js: true do 
 		FactoryGirl.create(:priority, name: 'P3')
 		select "P3", from: "Priority"
 		fill_in "Subject", with: "Page is rendering without images"
