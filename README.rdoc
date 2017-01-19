@@ -1,3 +1,0 @@
-== README
-
-This app will send alerts for P1, P2 and P3 incidents
