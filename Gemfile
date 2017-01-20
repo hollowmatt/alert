@@ -1,8 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '4.2.5'
-gem 'sqlite3'
-gem 'mysql2', '~> 0.3.18'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'mailgun-ruby', require: 'mailgun'
@@ -20,12 +18,16 @@ gem 'pundit'
 gem 'carrierwave', "~> 0.10.0" 
 gem 'fog', '~> 1.29.0'
 
+group :production do 
+  gem 'pg'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'test-unit'
   gem 'minitest'
+  gem 'sqlite3'
 end
 
 group :development do
