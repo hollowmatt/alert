@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby "2.1.0"
 
 gem 'rails', '4.2.5'
 gem 'sass-rails', '~> 5.0'
@@ -21,6 +22,7 @@ gem 'fog', '~> 1.29.0'
 group :production do 
   gem 'pg'
   gem 'rails_12factor'
+  gem 'puma'
 end
 
 group :development, :test do
