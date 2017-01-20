@@ -18,6 +18,7 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'pundit'
 gem 'carrierwave', "~> 0.10.0" 
+gem 'fog', '~> 1.29.0'
 
 
 group :development, :test do
