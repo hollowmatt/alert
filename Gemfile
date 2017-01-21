@@ -6,6 +6,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'mailgun-ruby', require: 'mailgun'
 gem 'devise', '~> 3.4.0'
+gem 'thin'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
@@ -23,7 +24,6 @@ gem 'net-ssh'
 group :production do 
   gem 'pg'
   gem 'rails_12factor'
-  gem 'puma'
 end
 
 group :development, :test do
