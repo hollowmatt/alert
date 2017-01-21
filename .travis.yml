@@ -1,11 +1,17 @@
 language: ruby
 rvm: 2.3.1
-script: 
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec spec/
+script:
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec spec/
 before_script:
-  - "sh -e /etc/init.d/xvfb start"
+- sh -e /etc/init.d/xvfb start
 before_install:
-  - export DISPLAY=:99.0
-
+- export DISPLAY=:99.0
+deploy:
+  provider: heroku
+  api_key:
+    secure: P31m//JJnNcvww6s/eDkxWjsd47b9QRGe9got2YaBc5AyuTNkAzzgV4yVzLwQj/UXQmNxiH3neRyZaQfMgJfg2JaEHcz13M8JT+ygK3YQNRww4gnR9eD3E1TJclOU/ufiHgwczie6ykZzubdPlVs7+TiFT0h9OFue6IsxdZGVEI3yLAQgK6mio5GjklcJ6ttnB5vXeaJ2/47oYS+zKVJj8V9Z58UltTivfQkoNw813IBUI14ZqpHx5dvQPT923imqxGMonxzXkn2Tsx49bO1wMlG7gDva/T7AbTZqT0HGpOW+ZYMmvGBmtx5SHB9tmQKViAq6h+7hL3tSRKyzPwBidh387pVqNDZnhp+RC9+ITqp/akXWHY2cvLvKepfbTJ8+b1PDo5JBvqVvM+ixVCZ1kRPRnFFsKHDcqCshm0ub7waUykB6ds/7hDT+963bkI9BszhlOOJlkbItrmxCpmWev6jJKlnN9UoIUK/zWLl/h0N2Kx50ZOM2Z3uDDVhbK9NMrm/SQhvSoTqbjUtIHQz+b/GA/zjMDAJTi3vhpQUzxGNg6AaKUqpaPCVSJ2YgayPA25zXsV5PtY+HS1vMjbzwbG+rJDzmXv5pFdQJMn+OmCOMGBTywBMwEGPUmzbjN3GjeOU0bEMaFswk6+ATq+sj2axKpLze9CuHwEYDvtmZDI=
+  app: cryptic-mountain-52176
+  on:
+    repo: hollowmatt/alert
