@@ -1,8 +1,8 @@
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "font-awesome";
 @import 'variables';
+@import "bootstrap_and_overrides";
+@import "font-awesome";
 
 @import "platform";
 @import "responsive";
@@ -12,26 +12,6 @@
 body {
 	padding-top: 70px;
 }
-.navbar {
-	background-color: #fff;
-	border-bottom: 3px solid #366250 !important;
-}
-
-.navbar-nav {
-    > li {
-      > a {
-        color: $primary-green;
-        &:hover,  &:focus {
-          color: $action-blue; }}}
-    > .active {
-      > a, > a:hover, > a:focus {
-        color: $action-blue;
-        background-color: $ghost-grey; }}
-    > .open {
-      > a, > a:hover, > a:focus {
-        color: $action-blue;
-        background-color: $ghost-grey; }}}
-
 
 .page-header {
 	position: relative;
