@@ -77,5 +77,19 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { :host => 'www.nookeng.com' }
+ ActionMailer::Base.delivery_method = :smtp
+
+  ActionMailer::Base.smtp_settings = {
+    port: ENV['MAILGUN_PORT'],
+    address: ENV['MAILGUN_SMTP_SERVER'],
+    user_name: ENV['MAILGUN_USERNAME'],
+    password: ENV['MAILGUN_PASSWORD'],
+    domain: ENV['domain'],
+    authentication: :plain,
+    enable_starttls_auto: true,
+    openssl_verify_mode: 'none'
+  }
+
+  config.action_mailer.default_url_options = { :host => ENV['domain'] }
+  
 end
