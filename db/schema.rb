@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170111020318) do
+ActiveRecord::Schema.define(version: 20170127212737) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 20170111020318) do
 
   add_index "distlists", ["platform_id"], name: "index_distlists_on_platform_id"
   add_index "distlists", ["priority_id"], name: "index_distlists_on_priority_id"
+
+  create_table "followers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "issues", force: :cascade do |t|
     t.string   "subject"

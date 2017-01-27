@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+  get 'followers/index'
+  end
+
+  namespace :admin do
     root 'application#index'
     resources :platforms, only: [:new, :create, :destroy]
     resources :users do 
@@ -8,6 +12,7 @@ Rails.application.routes.draw do
         patch :archive
       end
     end
+    resources :followers, only: [:index, :new, :create, :destroy]
   end
 
   devise_for :users
