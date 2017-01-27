@@ -35,6 +35,9 @@ Rails.application.configure do
     host: "alert.dev"
   }
 
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = false
+
   # Randomize the order test cases are executed.
   config.active_support.test_order = :random
 
