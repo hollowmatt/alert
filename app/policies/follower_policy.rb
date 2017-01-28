@@ -1,9 +1,8 @@
 class FollowerPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      return scope.none if user.nil?
+      return scope.none if user.nil? || !user.admin?
       return scope.all if user.admin?
-      scope.joins(:roles).where(roles: {user_id: user})
     end
   end
 
@@ -16,10 +15,23 @@ class FollowerPolicy < ApplicationPolicy
   end
 
   def create?
+  	writable?
+  end
+
+  def show?
+  	user.try(:admin)
+  end
+
+  def update?
   	user.try(:admin)
   end
 
   def destroy?
   	user.try(:admin)
   end
+
+  private
+    def writable?
+      user.try(:admin?)
+    end
 end
