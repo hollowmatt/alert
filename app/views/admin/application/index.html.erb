@@ -3,15 +3,39 @@
     <div class="page-header">
       <h1>Admin</h1>
     </div>
-    <p>
-      This is the admin home page.  More stuff will be here
-    </p>
+    <div id="platforms">
+      <div class="row">
+        <div class="col-md-12 header">
+          <h3>Platform List</h3>
+          <p>Click on a platform name to add to the alert distlists</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 header">
+         Platform
+        </div>
+        <div class="col-md-8 header">
+          Description
+        </div>
+      </div>
+      <% @platforms.each do |p| %>
+        <div class="row">
+          <div class="col-md-4">
+           <%= link_to "#{p.name}", admin_distlists_path(p) %>
+          </div>
+          <div class="col-md-8">
+            <%= p.description %> 
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="col-md-3">
     <h2> Admin Links </h2>
     <ul class="nav nav-stacked">
       <li> <%= link_to "Users", admin_users_path %> </li>
       <li> <%= link_to "Followers", admin_followers_path %> </li>
+      <li> <%= link_to "Distlists", admin_distlists_path %> </li>
     </ul>
   </div>
 </div>

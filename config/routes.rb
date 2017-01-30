@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       end
     end
     resources :followers, only: [:index, :new, :create, :destroy]
+    resources :distlists, only: [:index, :show, :new, :create, :destroy]
   end
 
   devise_for :users
