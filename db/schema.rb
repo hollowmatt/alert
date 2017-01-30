@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127212737) do
+ActiveRecord::Schema.define(version: 20170130003033) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file"
@@ -35,21 +35,22 @@ ActiveRecord::Schema.define(version: 20170127212737) do
   add_index "comments", ["issue_id"], name: "index_comments_on_issue_id"
 
   create_table "distlists", force: :cascade do |t|
-    t.string   "email"
     t.integer  "priority_id"
     t.integer  "platform_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "follower_id"
   end
 
+  add_index "distlists", ["follower_id"], name: "index_distlists_on_follower_id"
   add_index "distlists", ["platform_id"], name: "index_distlists_on_platform_id"
   add_index "distlists", ["priority_id"], name: "index_distlists_on_priority_id"
 
   create_table "followers", force: :cascade do |t|
     t.string   "name"
-    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
   end
 
   create_table "issues", force: :cascade do |t|
