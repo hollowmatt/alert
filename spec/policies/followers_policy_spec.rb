@@ -22,7 +22,7 @@ RSpec.describe FollowerPolicy do
 	context "permissions" do 
 		subject { FollowerPolicy.new(user, follower) }
 
-		context "for anonymouse users" do 
+		context "for anonymous users" do 
 			it { should_not permit_action :index }
 			it { should_not permit_action :new }
 			it { should_not permit_action :create }

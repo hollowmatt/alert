@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'distlists/index'
+
+  get 'distlists/show'
+
   namespace :admin do
   get 'followers/index'
   end
