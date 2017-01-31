@@ -8,29 +8,4 @@
   </ul>
 </div>
 
-<div class="container">
-  <div class="row header-row">
-    <div class="col-xs-6">
-      Platform
-    </div>
-    <div class="col-xs-3">
-      Priority 
-    </div>
-    <div class="col-xs-3">
-      Email
-    </div>
-  </div>
-  <% @distlists.each do |d| %>
-    <div class="row">
-      <div class="col-xs-6">
-       <%= d.platform.name %>
-      </div>
-      <div class="col-xs-3">
-        <%= d.priority.name %> 
-      </div>
-      <div class="col-xs-3">
-        <%= d.email %>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render "content", distlists: @distlists %>

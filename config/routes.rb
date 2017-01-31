@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'distlists/index'
-
-  get 'distlists/show'
-
-  namespace :admin do
-  get 'followers/index'
-  end
-
   namespace :admin do
     root 'application#index'
     resources :platforms, only: [:new, :create, :destroy]
@@ -18,6 +10,7 @@ Rails.application.routes.draw do
     end
     resources :followers, only: [:index, :new, :create, :destroy]
     resources :distlists, only: [:index, :show, :new, :create, :destroy]
+    get "distlists/platform/:id" => 'distlists#platdex', as: :platform_distlist
   end
 
   devise_for :users
