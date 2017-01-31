@@ -10,6 +10,10 @@ class DistlistPolicy < ApplicationPolicy
     user.try(:admin?) 
   end
 
+  def platdex?
+    user.try(:admin?)
+  end
+
   def new?
     user.try(:admin?) 
   end

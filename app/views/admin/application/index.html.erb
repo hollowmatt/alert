@@ -21,7 +21,7 @@
       <% @platforms.each do |p| %>
         <div class="row">
           <div class="col-md-4">
-           <%= link_to "#{p.name}", admin_distlists_path(p) %>
+           <%= link_to "#{p.name}", admin_platform_distlist_path(p.id) %>
           </div>
           <div class="col-md-8">
             <%= p.description %> 

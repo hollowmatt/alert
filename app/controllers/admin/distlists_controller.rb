@@ -1,10 +1,15 @@
 class Admin::DistlistsController < ApplicationController
 
   before_action :set_distlist, only: [:destroy, :show, :update]
-  skip_after_action :verify_policy_scoped, only: [:index]
+  skip_after_action :verify_policy_scoped, only: [:index, :platdex]
   def index
     @distlists = Distlist.all
-    # authorize Distlist, :index?
+  end
+
+  def platdex
+    @distlists = Distlist.where(platform_id: params[:id]).order("priority_id asc")
+    authorize @distlists, :platdex?
+    render "index"
   end
 
   def show
