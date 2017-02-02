@@ -1,0 +1,8 @@
+<%= simple_form_for([:admin, distlist]) do |f| %>
+  
+  <%= f.association :platform %>
+  <%= f.association :priority %>
+  <%= f.association :follower %>
+  <%= f.button :submit, "Add to Distlist", class: "btn-primary" %>
+
+<% end %>
