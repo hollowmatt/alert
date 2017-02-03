@@ -21,4 +21,12 @@ feature "Admins can create distlists" do
 
 		expect(page).to have_content "Joe Blow has been added to distlist"
 	end
+
+	it "cannot be saved with missing attributes" do 
+		select "NOOK", from: "Platform"
+		click_button "Add to Distlist"
+
+		expect(page).to have_content "Distlist has not been modified"
+	end
+	
 end
