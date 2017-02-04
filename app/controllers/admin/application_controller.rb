@@ -5,6 +5,7 @@ class Admin::ApplicationController < ApplicationController
 
   def index
     @platforms = Platform.all
+    @issues = Issue.all
   end
 
   private
