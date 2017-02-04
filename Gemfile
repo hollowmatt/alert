@@ -7,6 +7,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'mailgun-ruby', require: 'mailgun'
 gem 'devise', '~> 3.4.0'
 gem 'thin'
+gem 'chartkick'
+gem 'chart-js-rails'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'

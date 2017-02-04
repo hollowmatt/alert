@@ -28,6 +28,12 @@
           </div>
         </div>
       <% end %>
+      <div class="row">
+        <div class="col-md-12">
+          <h3> All Issues <h3>
+          <%= pie_chart @issues.group(:priority).count %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="col-md-3">
